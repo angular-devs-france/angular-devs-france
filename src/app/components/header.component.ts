@@ -14,7 +14,7 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
           <li><a routerLink="/a-propos" routerLinkActive="active">A propos</a></li>
           <li>
             <a
-              class="hidden sm:block px-4 py-3 bg-blue-700 text-white font-bold rounded-md"
+              class="hidden sm:block px-2 py-1 bg-blue-700 text-white font-bold rounded-md"
               href=""
               target="_blank">
               Proposer un sujet

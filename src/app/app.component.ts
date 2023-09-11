@@ -9,7 +9,7 @@ import {FooterComponent} from "./components/footer.component";
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   template: `
     <app-header />
-    <main class="grow px-4 py-12">
+    <main class="flex justify-center grow px-4 py-12">
       <router-outlet></router-outlet>
     </main>
     <app-footer />
@@ -23,6 +23,7 @@ import {FooterComponent} from "./components/footer.component";
         text-align: center;
         display: flex;
         flex-direction: column;
+        @apply prose max-w-screen-lg;
       }
     `,
   ],

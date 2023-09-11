@@ -25,7 +25,12 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  @apply bg-blue-100 text-blue-900;
+  @apply bg-blue-100;
+}
+
+analog-markdown-route {
+  @apply prose;
+  text-align: justify;
 }
 
 @media (prefers-color-scheme: light) {

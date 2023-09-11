@@ -9,11 +9,20 @@ import {Evenement} from "../../models/evenement.model";
   imports: [MarkdownComponent, NgIf, AsyncPipe],
   template: `
     <ng-container *ngIf="post$ | async as post">
-      <h1>{{post.attributes.title}}</h1>
+      <h1 class="text-6xl font-bold mb-8">{{post.attributes.title}}</h1>
       <p>{{post.attributes.description}}</p>
-      <analog-markdown [content]="post.content"></analog-markdown>
+      <analog-markdown class="text-justify prose prose-headings:font-bold" [content]="post.content"></analog-markdown>
     </ng-container>
     `,
+  styles: [
+    `
+    :host {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @apply text-justify prose prose-headings:font-bold;
+    }`
+  ]
 })
 export default class EvenementComponent {
   post$ = injectContent<Evenement>({

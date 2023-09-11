@@ -8,7 +8,7 @@ import {RouterLink} from "@angular/router";
     RouterLink
   ],
   template: `
-    <footer class="p-8 flex flex-wrap gap-8 justify-center bg-gray-800 text-white">
+    <footer class="p-8 flex flex-wrap gap-8 justify-center border-t-2 border-t-gray-700">
       <section>
         <h4 class="font-bold text-xl mb-2">Communauté</h4>
         <ul>
