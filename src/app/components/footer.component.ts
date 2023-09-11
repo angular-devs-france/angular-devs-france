@@ -12,7 +12,7 @@ import {RouterLink} from "@angular/router";
       <section>
         <h4 class="font-bold text-xl mb-2">Communauté</h4>
         <ul>
-          <li><a href="" target="_blank">Twitter</a></li>
+          <li><a href="https://twitter.com/AngularDevsFr" target="_blank">Twitter</a></li>
           <li><a href="https://www.linkedin.com/company/angular-devs-france" target="_blank">LinkedIn</a></li>
           <li><a href="https://discord.gg/c8XThfW9a7" target="_blank">Discord</a></li>
         </ul>
