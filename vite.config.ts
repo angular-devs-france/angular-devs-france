@@ -16,9 +16,10 @@ export default defineConfig(({ mode }) => ({
     static: true,
     prerender: {
       routes: [
+        '/',
         '/evenements',
         '/a-propos',
-        'code-de-conduite'
+        '/code-de-conduite'
       ]
     }
   })],
