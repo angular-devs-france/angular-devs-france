@@ -30,7 +30,7 @@ import {RouterLink} from "@angular/router";
         <h4 class="font-bold text-xl mb-2">Nous rencontrer</h4>
         <ul>
           <li><a href="" target="_blank">Proposer un sujet</a></li>
-          <li><a href="">Nous contacter</a></li>
+          <li><a href="mailto:angulardevs.fr">Nous contacter</a></li>
         </ul>
       </section>
     </footer>
