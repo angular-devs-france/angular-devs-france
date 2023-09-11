@@ -20,8 +20,11 @@ export default defineConfig(({ mode }) => ({
         '/evenements',
         '/a-propos',
         '/code-de-conduite'
-      ]
-    }
+      ],
+      sitemap: {
+        host: 'https://angulardevs.fr/',
+      },
+    },
   })],
   test: {
     globals: true,
