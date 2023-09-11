@@ -12,7 +12,7 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
       <section class="text-start">
         <h3 class="font-bold text-2xl">{{evenement.attributes.title}}</h3>
         <p class="flex gap-1 mb-4 italic">
-          <img src="/images/calendar.svg" alt=""/>
+          <img ngSrc="/images/calendar.svg" height="28" width="24" alt=""/>
           {{evenement.attributes.date | date}} à 19h
         </p>
         <p class="line-clamp-4 sm:line-clamp-3 text-justify">
@@ -21,7 +21,7 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
         <a class="underline block mb-4" [routerLink]="['/evenements', evenement.slug]">Voir plus</a>
         <a class="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-bold rounded-md" href=""
            target="_blank">
-          <img src="/images/youtube.svg" alt=""/>
+          <img ngSrc="/images/youtube.svg" height="24" width="24" alt=""/>
           Participer
         </a>
       </section>

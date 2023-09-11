@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import {EvenementComponent} from "../components/evenement.component";
 import {injectContentFiles} from "@analogjs/content";
 import {Evenement} from "../models/evenement.model";
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   template: `
       <div class="flex justify-center items-center flex-wrap gap-8">
-          <img alt="Logo Angular Devs France" src="/images/logo.png"/>
+          <img alt="Logo Angular Devs France" ngSrc="/images/logo.png" height="250" width="250"/>
           <div class="flex flex-col items-center gap-4">
               <h1 class="text-6xl font-bold">Angular Devs France</h1>
               <p class="text-xl">LE rendez-vous de la communauté Angular francophone!</p>
@@ -36,7 +37,8 @@ import {Evenement} from "../models/evenement.model";
     `
   ],
   imports: [
-    EvenementComponent
+    EvenementComponent,
+    NgOptimizedImage
   ]
 })
 export default class HomeComponent {
