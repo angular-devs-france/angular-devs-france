@@ -1,49 +1,47 @@
 import { Component } from '@angular/core';
+import {EvenementComponent} from "../components/evenement.component";
+import {injectContentFiles} from "@analogjs/content";
+import {Evenement} from "../models/evenement.model";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   template: `
-    <div>
-      <a href="https://analogjs.org/" target="_blank">
-        <img alt="Analog Logo" class="logo analog" src="/analog.svg" />
-      </a>
-    </div>
+      <div class="flex justify-center items-center flex-wrap gap-8">
+          <img alt="Logo Angular Devs France" src="/images/logo.png"/>
+          <div class="flex flex-col items-center gap-4">
+              <h1 class="text-6xl font-bold">Angular Devs France</h1>
+              <p class="text-xl">LE rendez-vous de la communauté Angular francophone!</p>
+              <a class="inline-block px-4 py-3 bg-red-600 text-white font-bold rounded-md" href="https://www.youtube.com/channel/UCmEGS2U5CSzWBt62WnCh_Cw" target="_blank">Découvrir
+                  la chaine
+                  YouTube</a>
+              <a
+                      class="sm:hidden px-4 py-3 bg-blue-700 text-white font-bold rounded-md"
+                      href=""
+                      target="_blank">
+                  Proposer un sujet
+              </a>
+          </div>
+      </div>
 
-    <h2>Analog</h2>
 
-    <h3>The fullstack meta-framework for Angular!</h3>
-
-    <div class="card">
-      <button type="button" (click)="increment()">Count {{ count }}</button>
-    </div>
-
-    <p class="read-the-docs">
-      For guides on how to customize this project, visit the
-      <a href="https://analogjs.org" target="_blank">Analog documentation</a>
-    </p>
+      <h2 class="text-4xl font-bold mt-20 mb-8">Prochain événement</h2>
+      <app-event [evenement]="nextEvent"></app-event>
   `,
   styles: [
     `
-      .logo {
-        will-change: filter;
+      :host {
+        display: block;
       }
-      .logo:hover {
-        filter: drop-shadow(0 0 2em #646cffaa);
-      }
-      .logo.angular:hover {
-        filter: drop-shadow(0 0 2em #42b883aa);
-      }
-      .read-the-docs {
-        color: #888;
-      }
-    `,
+    `
   ],
+  imports: [
+    EvenementComponent
+  ]
 })
 export default class HomeComponent {
-  count = 0;
+  nextEvent = injectContentFiles<Evenement>(file => {
+    return file.filename.startsWith('/src/content/events/') && new Date(file.attributes.date) > new Date()
+  })[0];
 
-  increment() {
-    this.count++;
-  }
 }

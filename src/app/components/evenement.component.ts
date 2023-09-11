@@ -1,0 +1,47 @@
+import {Component, Input} from '@angular/core';
+import {Evenement} from "../models/evenement.model";
+import {ContentFile} from "@analogjs/content";
+import {RouterLink} from "@angular/router";
+import {DatePipe} from "@angular/common";
+
+@Component({
+  selector: 'app-event',
+  standalone: true,
+  template: `
+    <article class="flex justify-around max-w-screen-md gap-4 mb-8">
+      <section class="text-start">
+        <h3 class="font-bold text-2xl">{{evenement.attributes.title}}</h3>
+        <p class="flex gap-1 mb-4 italic">
+          <img src="/images/calendar.svg" alt=""/>
+          {{evenement.attributes.date | date}} à 19h
+        </p>
+        <p class="line-clamp-4 sm:line-clamp-3 text-justify">
+          {{evenement.attributes.description}}
+        </p>
+        <a class="underline block mb-4" [routerLink]="['/evenements', evenement.slug]">Voir plus</a>
+        <a class="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-bold rounded-md" href=""
+           target="_blank">
+          <img src="/images/youtube.svg" alt=""/>
+          Participer
+        </a>
+      </section>
+      <img class="hidden sm:block h-40 w-auto" src="/images/event.png" alt="">
+    </article>
+
+  `,
+  imports: [
+    RouterLink,
+    DatePipe
+  ],
+  styles: [
+    `
+      :host {
+        display: flex;
+        justify-content: center;
+      }
+    `
+  ]
+})
+export class EvenementComponent {
+  @Input({required: true}) evenement!: ContentFile<Evenement>;
+}
