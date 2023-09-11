@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {Evenement} from "../models/evenement.model";
 import {ContentFile} from "@analogjs/content";
 import {RouterLink} from "@angular/router";
-import {DatePipe} from "@angular/common";
+import {DatePipe, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-event',
@@ -25,13 +25,14 @@ import {DatePipe} from "@angular/common";
           Participer
         </a>
       </section>
-      <img class="hidden sm:block h-40 w-auto" src="/images/event.png" alt="">
+      <img class="hidden sm:block" ngSrc="/images/event.png" height="180" width="320" priority alt="">
     </article>
 
   `,
   imports: [
     RouterLink,
-    DatePipe
+    DatePipe,
+    NgOptimizedImage
   ],
   styles: [
     `
