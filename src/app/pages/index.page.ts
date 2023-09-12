@@ -9,7 +9,7 @@ import {NgOptimizedImage} from "@angular/common";
   standalone: true,
   template: `
       <div class="flex justify-center items-center flex-wrap gap-8">
-          <img alt="Logo Angular Devs France" ngSrc="/images/logo.png" height="250" width="250"/>
+          <img alt="Logo Angular Devs France" ngSrc="/images/logo.png" height="250" width="250" priority/>
           <div class="flex flex-col items-center gap-4 text-center">
               <h1 class="text-6xl font-bold">Angular Devs France</h1>
               <p class="text-xl">LE rendez-vous de la communauté Angular francophone!</p>
