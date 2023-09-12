@@ -8,7 +8,7 @@ import {RouterLink} from "@angular/router";
     RouterLink
   ],
   template: `
-    <footer class="p-8 flex flex-wrap gap-8 justify-center border-t-2 border-t-gray-700">
+    <footer class="p-8 flex flex-wrap gap-16 justify-center border-t-2 border-t-gray-700 text-center">
       <section>
         <h4 class="font-bold text-xl mb-2">Communauté</h4>
         <ul>
@@ -29,13 +29,12 @@ import {RouterLink} from "@angular/router";
       <section>
         <h4 class="font-bold text-xl mb-2">Nous rencontrer</h4>
         <ul>
-          <li class="py-1 sm:py-0"><a href="" target="_blank">Proposer un sujet</a></li>
-          <li class="py-1 sm:py-0"><a href="mailto:angulardevs.fr">Nous contacter</a></li>
+          <li class="py-1 sm:py-0"><a href="https://conference-hall.io/public/event/xXhZVEbtz1mMoWZYhsoE" target="_blank">Proposer un sujet</a></li>
+          <li class="py-1 sm:py-0"><a href="mailto:angulardevsfr@gmail.com">Nous contacter</a></li>
         </ul>
       </section>
     </footer>
   `
 })
 export class FooterComponent {
-  // TODO : width not full on large screen
 }

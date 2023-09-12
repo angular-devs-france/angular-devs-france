@@ -20,7 +20,6 @@ import {FooterComponent} from "./components/footer.component";
         max-width: 1280px;
         min-height: 100vh;
         margin: 0 auto;
-        text-align: center;
         display: flex;
         flex-direction: column;
         @apply prose max-w-screen-lg;

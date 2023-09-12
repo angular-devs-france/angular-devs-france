@@ -15,7 +15,7 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
           <li>
             <a
               class="hidden sm:block px-2 py-1 bg-blue-700 text-white font-bold rounded-md"
-              href=""
+              href="https://conference-hall.io/public/event/xXhZVEbtz1mMoWZYhsoE"
               target="_blank">
               Proposer un sujet
             </a>

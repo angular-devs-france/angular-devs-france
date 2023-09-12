@@ -8,14 +8,14 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
   selector: 'app-event',
   standalone: true,
   template: `
-    <article class="flex justify-around max-w-screen-md gap-4 mb-8">
+    <article class="flex justify-around items-start max-w-screen-md gap-4 mb-8">
       <section class="text-start">
         <h3 class="font-bold text-2xl">{{evenement.attributes.title}}</h3>
         <p class="flex gap-1 mb-4 italic">
           <img ngSrc="/images/calendar.svg" height="28" width="24" alt=""/>
           {{evenement.attributes.date | date}} à 19h
         </p>
-        <p class="line-clamp-4 sm:line-clamp-3 text-justify">
+        <p class="line-clamp-4 sm:line-clamp-3">
           {{evenement.attributes.description}}
         </p>
         <a class="underline block mb-4" [routerLink]="['/evenements', evenement.slug]">Voir plus</a>
@@ -25,7 +25,7 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
           Participer
         </a>
       </section>
-      <img class="hidden sm:block" ngSrc="/images/event.png" height="180" width="320" priority alt="">
+      <img class="hidden sm:block border-2 border-white" ngSrc="/images/event.png" height="180" width="320" priority alt="">
     </article>
 
   `,

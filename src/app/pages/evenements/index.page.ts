@@ -12,7 +12,7 @@ import {Evenement} from "../../models/evenement.model";
     NgForOf
   ],
   template: `
-    <h1 class="text-6xl font-bold mb-8">Evenements</h1>
+    <h1 class="text-4xl sm:text-6xl font-bold mb-8">Evenements</h1>
     <ul>
       <li>
         <app-event
