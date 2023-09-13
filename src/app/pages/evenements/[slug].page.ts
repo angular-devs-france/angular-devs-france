@@ -33,6 +33,6 @@ import {Evenement} from "../../models/evenement.model";
 export default class EvenementComponent {
   evenement$ = injectContent<Evenement>({
     param: 'slug',
-    subdirectory: 'events'
+    subdirectory: 'evenements'
   });
 }
