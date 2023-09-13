@@ -2,6 +2,9 @@
 
 import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
+import * as fs from "fs";
+
+const content = fs.readdirSync('./src/content/evenements');
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -19,7 +22,8 @@ export default defineConfig(({ mode }) => ({
         '/',
         '/evenements',
         '/a-propos',
-        '/code-de-conduite'
+        '/code-de-conduite',
+        ...content.map((file) => `/evenements/${file.replace('.md', '')}`)
       ],
       sitemap: {
         host: 'https://angulardevs.fr/',
