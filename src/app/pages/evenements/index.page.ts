@@ -25,5 +25,5 @@ import {Evenement} from "../../models/evenement.model";
 })
 export default class EvenementsComponent {
   // TODO add sorting
-  evenements = injectContentFiles<Evenement>(({filename}) => filename.startsWith('/src/content/events/'));
+  evenements = injectContentFiles<Evenement>(({filename}) => filename.startsWith('/src/content/evenements/'));
 }

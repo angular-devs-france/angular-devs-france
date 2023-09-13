@@ -45,7 +45,7 @@ import {NgOptimizedImage} from "@angular/common";
 })
 export default class HomeComponent {
   nextEvent = injectContentFiles<Evenement>(file => {
-    return file.filename.startsWith('/src/content/events/') && new Date(file.attributes.date) > new Date()
+    return file.filename.startsWith('/src/content/evenements/') && new Date(file.attributes.date) > new Date()
   })[0];
 
 }
