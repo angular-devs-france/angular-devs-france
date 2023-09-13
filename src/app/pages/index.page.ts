@@ -13,7 +13,9 @@ import {NgOptimizedImage} from "@angular/common";
           <div class="flex flex-col items-center gap-4 text-center">
               <h1 class="text-6xl font-bold">Angular Devs France</h1>
               <p class="text-xl">LE rendez-vous de la communauté Angular francophone!</p>
-              <a class="inline-block px-4 py-3 bg-red-600 text-white font-bold rounded-md" href="https://www.youtube.com/channel/UCmEGS2U5CSzWBt62WnCh_Cw" target="_blank">Découvrir
+              <p>Rejoignez la communauté en live sur YouTube chaque premier mardi du mois à 19h!</p>
+              <a class="inline-block px-4 py-3 bg-red-600 text-white font-bold rounded-md"
+                 href="https://www.youtube.com/channel/UCmEGS2U5CSzWBt62WnCh_Cw" target="_blank">Découvrir
                   la chaine
                   YouTube</a>
               <a
