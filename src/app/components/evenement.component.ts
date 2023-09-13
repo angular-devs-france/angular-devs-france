@@ -19,7 +19,7 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
           {{evenement.attributes.description}}
         </p>
         <a class="underline block mb-4" [routerLink]="['/evenements', evenement.slug]">Voir plus</a>
-        <a class="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-bold rounded-md" href=""
+        <a class="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-bold rounded-md" [href]="evenement.attributes.youtube"
            target="_blank">
           <img ngSrc="/images/youtube.svg" height="24" width="24" alt=""/>
           Participer

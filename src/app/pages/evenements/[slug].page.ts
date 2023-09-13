@@ -8,11 +8,16 @@ import {Evenement} from "../../models/evenement.model";
   standalone: true,
   imports: [MarkdownComponent, NgIf, AsyncPipe, NgOptimizedImage],
   template: `
-    <ng-container *ngIf="post$ | async as post">
+    <ng-container *ngIf="evenement$ | async as evenement">
       <img class="border-2 border-white" ngSrc="/images/event.png" height="360" width="640" alt="">
-      <h1 class="text-6xl font-bold mb-8">{{post.attributes.title}}</h1>
-      <p>{{post.attributes.description}}</p>
-      <analog-markdown class="prose prose-headings:font-bold prose-h2:text-3xl" [content]="post.content"></analog-markdown>
+      <h1 class="text-6xl font-bold mb-8">{{evenement.attributes.title}}</h1>
+      <p>{{evenement.attributes.description}}</p>
+      <a class="not-prose inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-bold rounded-md" [href]="evenement.attributes.youtube"
+         target="_blank">
+        <img ngSrc="/images/youtube.svg" height="24" width="24" alt=""/>
+        Participer
+      </a>
+      <analog-markdown class="prose prose-headings:font-bold prose-h2:text-3xl" [content]="evenement.content"></analog-markdown>
     </ng-container>
     `,
   styles: [
@@ -26,7 +31,7 @@ import {Evenement} from "../../models/evenement.model";
   ]
 })
 export default class EvenementComponent {
-  post$ = injectContent<Evenement>({
+  evenement$ = injectContent<Evenement>({
     param: 'slug',
     subdirectory: 'events'
   });
