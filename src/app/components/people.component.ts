@@ -16,10 +16,10 @@ import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
           <h3 class="font-bold">{{people.name}}</h3>
           <ul class="flex gap-2" *ngIf="people.socials.length">
               <li *ngFor="let social of people.socials">
-                  <a *ngIf="social.twitter" title="Retrouvez moi sur Twitter">
+                  <a *ngIf="social.twitter" [href]="social.twitter" title="Retrouvez moi sur Twitter">
                       <img ngSrc="/images/twitter.svg" height="20" width="20" alt="">
                   </a>
-                  <a *ngIf="social.linkedin" title="Retrouvez moi sur LinkedIn">
+                  <a *ngIf="social.linkedin" [href]="social.linkedin" title="Retrouvez moi sur LinkedIn">
                       <img ngSrc="/images/linkedin.svg" height="20" width="20" alt="">
                   </a>
               </li>
