@@ -16,10 +16,8 @@ export default defineConfig(({ mode }) => ({
     mainFields: ['module'],
   },
   plugins: [analog({
-    static: true,
     prerender: {
       routes: [
-        '/',
         '/evenements',
         '/a-propos',
         '/code-de-conduite',
