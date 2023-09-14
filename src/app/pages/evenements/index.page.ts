@@ -3,6 +3,7 @@ import {EvenementComponent} from "../../components/evenement.component";
 import {injectContentFiles} from "@analogjs/content";
 import {NgForOf} from "@angular/common";
 import {Evenement} from "../../models/evenement.model";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-evenements',
@@ -26,4 +27,12 @@ import {Evenement} from "../../models/evenement.model";
 export default class EvenementsComponent {
   // TODO add sorting
   evenements = injectContentFiles<Evenement>(({filename}) => filename.startsWith('/src/content/evenements/'));
+
+  constructor(
+    private readonly title: Title,
+    private readonly meta: Meta
+  ) {
+    title.setTitle('Evènements - AngularDevs');
+    meta.updateTag({name: 'description', content: 'Découvrez les évènements à venir de la communauté Angular Devs France'});
+  }
 }

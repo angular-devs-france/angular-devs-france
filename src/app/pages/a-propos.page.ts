@@ -3,6 +3,7 @@ import {injectContentFiles} from "@analogjs/content";
 import {NgForOf} from "@angular/common";
 import {PeopleComponent} from "../components/people.component";
 import {People} from "../models/people.model";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-a-propos',
@@ -38,4 +39,12 @@ import {People} from "../models/people.model";
 })
 export default class AProposComponent {
   staff = injectContentFiles<People>(({filename}) => filename.startsWith('/src/content/staff/'));
+
+  constructor(
+    private readonly title: Title,
+    private readonly meta: Meta
+  ) {
+    title.setTitle('A propos - AngularDevs');
+    meta.updateTag({name: 'description', content: 'Découvrez l\'équipe derrière Angular Devs France'});
+  }
 }

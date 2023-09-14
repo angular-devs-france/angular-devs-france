@@ -1,3 +1,8 @@
+---
+title: "Code de conduite"
+description: "Code de conduite de la communauté Angular Devs France"
+---
+
 # Code de conduite
 
 ## Notre engagement

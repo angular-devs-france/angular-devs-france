@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {injectContent, MarkdownComponent} from "@analogjs/content";
 import {AsyncPipe, NgIf, NgOptimizedImage} from "@angular/common";
 import {Evenement} from "../../models/evenement.model";
+import {Meta, Title} from "@angular/platform-browser";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'app-evenement',
@@ -34,5 +36,16 @@ export default class EvenementComponent {
   evenement$ = injectContent<Evenement>({
     param: 'slug',
     subdirectory: 'evenements'
-  });
+  }).pipe(
+    tap((evenement) => {
+      this.title.setTitle(`${evenement.attributes.title} - AngularDevs`);
+      this.meta.updateTag({name: 'description', content: evenement.attributes.description});
+    })
+  );
+
+  constructor(
+    private readonly title: Title,
+    private readonly meta: Meta
+  ) {
+  }
 }
