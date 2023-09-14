@@ -44,7 +44,7 @@ export default class AProposComponent {
     private readonly title: Title,
     private readonly meta: Meta
   ) {
-    title.setTitle('A propos - AngularDevs');
+    title.setTitle('A propos - Angular Devs France');
     meta.updateTag({name: 'description', content: 'Découvrez l\'équipe derrière Angular Devs France'});
   }
 }

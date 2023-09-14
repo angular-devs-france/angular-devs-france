@@ -15,7 +15,7 @@ import {tap} from "rxjs";
       <h1 class="text-6xl font-bold mb-8">{{evenement.attributes.title}}</h1>
       <p>{{evenement.attributes.description}}</p>
       <a class="not-prose inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-bold rounded-md" [href]="evenement.attributes.youtube"
-         target="_blank">
+         target="_blank" title="Accédez à l'évènement live sur YouTube">
         <img ngSrc="/images/youtube.svg" height="24" width="24" alt=""/>
         Participer
       </a>
@@ -38,7 +38,7 @@ export default class EvenementComponent {
     subdirectory: 'evenements'
   }).pipe(
     tap((evenement) => {
-      this.title.setTitle(`${evenement.attributes.title} - AngularDevs`);
+      this.title.setTitle(`${evenement.attributes.title} - Angular Devs France`);
       this.meta.updateTag({name: 'description', content: evenement.attributes.description});
     })
   );

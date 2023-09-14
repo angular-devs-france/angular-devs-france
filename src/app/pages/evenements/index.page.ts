@@ -32,7 +32,7 @@ export default class EvenementsComponent {
     private readonly title: Title,
     private readonly meta: Meta
   ) {
-    title.setTitle('Evènements - AngularDevs');
+    title.setTitle('Evènements - Angular Devs France');
     meta.updateTag({name: 'description', content: 'Découvrez les évènements à venir de la communauté Angular Devs France'});
   }
 }

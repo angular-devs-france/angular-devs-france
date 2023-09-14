@@ -21,7 +21,7 @@ import {NgOptimizedImage} from "@angular/common";
               <a
                       class="sm:hidden px-4 py-3 bg-blue-700 text-white font-bold rounded-md"
                       href="https://conference-hall.io/public/event/xXhZVEbtz1mMoWZYhsoE"
-                      target="_blank">
+                      target="_blank" title="Rejoignez notre communauté de speakers en proposant un sujet sur Conference Hall">
                   Proposer un sujet
               </a>
           </div>
