@@ -9,7 +9,7 @@ import {FooterComponent} from "./components/footer.component";
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   template: `
     <app-header />
-    <main class="flex justify-center grow px-4 py-12">
+    <main class="flex justify-center grow px-4 py-12 min-h-screen">
       <router-outlet></router-outlet>
     </main>
     <app-footer />
