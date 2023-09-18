@@ -5,6 +5,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Lilita One";
+  src: url("/fonts/LilitaOne-Regular.ttf");
+}
+
 /* You can add global styles to this file, and also import other style files */
 :root {
   font-family: Verdana, sans-serif;
