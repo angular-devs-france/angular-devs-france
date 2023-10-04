@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {EvenementComponent} from "../components/evenement.component";
 import {injectContentFiles} from "@analogjs/content";
 import {Evenement} from "../models/evenement.model";
-import {NgOptimizedImage} from "@angular/common";
+import {NgIf, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-home',
@@ -29,7 +29,10 @@ import {NgOptimizedImage} from "@angular/common";
 
 
       <h2 class="text-4xl font-bold mt-20 mb-8 text-center">Prochain événement</h2>
-      <app-event [evenement]="nextEvent"></app-event>
+      <app-event *ngIf="nextEvent; else upcoming" [evenement]="nextEvent"></app-event>
+      <ng-template #upcoming>
+        <p class="text-center">Annonce à venir pour la prochaine édition du 7 novembre 2023</p>
+      </ng-template>
   `,
   styles: [
     `
@@ -44,7 +47,8 @@ import {NgOptimizedImage} from "@angular/common";
   ],
   imports: [
     EvenementComponent,
-    NgOptimizedImage
+    NgOptimizedImage,
+    NgIf
   ]
 })
 export default class HomeComponent {
