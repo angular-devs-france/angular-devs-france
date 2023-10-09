@@ -20,7 +20,13 @@ import {Meta, Title} from "@angular/platform-browser";
     <p>Abonnez-vous dès maintenant sur les réseaux sociaux pour ne manquer aucun évènement et rejoignez-nous dans cette aventure passionnante de découverte et de partage.</p>
     <h2 class="text-4xl font-bold mt-20 mb-8">L'équipe</h2>
     <ul class="flex flex-wrap justify-center gap-8">
-      <li *ngFor="let people of staff">
+      <li *ngFor="let people of activeStaff">
+        <app-people [people]="people.attributes"></app-people>
+      </li>
+    </ul>
+    <h2 class="text-4xl font-bold mt-20 mb-8">Hall of Fame</h2>
+    <ul class="flex flex-wrap justify-center gap-8">
+      <li *ngFor="let people of inactiveStaff">
         <app-people [people]="people.attributes"></app-people>
       </li>
     </ul>
@@ -39,6 +45,8 @@ import {Meta, Title} from "@angular/platform-browser";
 })
 export default class AProposComponent {
   staff = injectContentFiles<People>(({filename}) => filename.startsWith('/src/content/staff/'));
+  activeStaff = this.staff.filter(({attributes}) => attributes.active);
+  inactiveStaff = this.staff.filter(({attributes}) => !attributes.active);
 
   constructor(
     private readonly title: Title,
