@@ -11,7 +11,7 @@ import {tap} from "rxjs";
   imports: [MarkdownComponent, NgIf, AsyncPipe, NgOptimizedImage],
   template: `
     <ng-container *ngIf="evenement$ | async as evenement">
-      <img class="border-2 border-white" ngSrc="/images/event.png" height="360" width="640" alt="">
+      <img class="border-2 border-white" [ngSrc]="'/images/' + evenement.attributes.image" height="360" width="640" alt="">
       <h1 class="text-6xl font-bold mb-8">{{evenement.attributes.title}}</h1>
       <p>{{evenement.attributes.description}}</p>
       <a class="not-prose inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-bold rounded-md" [href]="evenement.attributes.youtube"

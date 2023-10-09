@@ -3,4 +3,5 @@ export interface Evenement {
   description: string;
   date: string;
   youtube: string;
+  image: string;
 }

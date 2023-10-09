@@ -25,7 +25,7 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
           Participer
         </a>
       </section>
-      <img class="hidden sm:block border-2 border-white" ngSrc="/images/event.png" height="180" width="320" priority alt="">
+      <img class="hidden sm:block border-2 border-white" [ngSrc]="'/images/' + evenement.attributes.image" height="180" width="320" priority alt="">
     </article>
 
   `,
