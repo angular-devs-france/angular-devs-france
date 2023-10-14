@@ -16,6 +16,9 @@ export default defineConfig(({ mode }) => ({
     mainFields: ['module'],
   },
   plugins: [analog({
+    nitro: {
+      serveStatic: false
+    },
     prerender: {
       routes: [
         '/evenements',
