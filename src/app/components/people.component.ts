@@ -13,7 +13,7 @@ import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
   template: `
       <article class="flex flex-col items-center gap-2">
           <img class="rounded-full" height="128" width="128" [ngSrc]="people.picture" alt="">
-          <h3 class="font-bold">{{people.name}}</h3>
+          <h3 class="font-bold" itemprop="name">{{people.name}}</h3>
           <ul class="flex gap-2" *ngIf="people.socials.length">
               <li *ngFor="let social of people.socials">
                   <a *ngIf="social.twitter" [href]="social.twitter" title="Retrouvez moi sur Twitter">

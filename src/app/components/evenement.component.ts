@@ -10,12 +10,12 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
   template: `
     <article class="flex justify-around items-start max-w-screen-md gap-4 mb-8">
       <section class="text-start">
-        <h3 class="font-bold text-2xl">{{evenement.attributes.title}}</h3>
-        <p class="flex gap-1 mb-4 italic">
+        <h3 class="font-bold text-2xl" itemprop="title">{{evenement.attributes.title}}</h3>
+        <p class="flex gap-1 mb-4 italic" itemprop="date">
           <img ngSrc="/images/calendar.svg" height="28" width="24" alt=""/>
           {{evenement.attributes.date | date}} à 19h
         </p>
-        <p class="line-clamp-4 sm:line-clamp-3">
+        <p class="line-clamp-4 sm:line-clamp-3" itemprop="description">
           {{evenement.attributes.description}}
         </p>
         <a class="underline block mb-4" [routerLink]="['/evenements', evenement.slug]" title="Découvrez les détails de l'évènement">Voir plus</a>

@@ -45,9 +45,6 @@
               "buildTarget": "my-app:build:production"
             }
           }
-        },
-        "test": {
-          "builder": "@nx/vite:test"
         }
       }
     }
