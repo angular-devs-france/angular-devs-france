@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, computed, Input} from '@angular/core';
 import {Evenement} from "../models/evenement.model";
 import {ContentFile} from "@analogjs/content";
 import {RouterLink} from "@angular/router";
@@ -22,7 +22,7 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
         <a class="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-bold rounded-md" [href]="evenement.attributes.youtube"
            target="_blank" title="Accédez à l'évènement live sur YouTube">
           <img ngSrc="/images/youtube.svg" height="24" width="24" alt=""/>
-          Participer
+          {{youtubeText()}}
         </a>
       </section>
       <img class="hidden sm:block border-2 border-white" [ngSrc]="'/images/' + evenement.attributes.image" height="180" width="320" priority alt="">
@@ -45,4 +45,8 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
 })
 export class EvenementComponent {
   @Input({required: true}) evenement!: ContentFile<Evenement>;
+
+  youtubeText = computed(() => {
+    return new Date(this.evenement.attributes.date) > new Date() ? 'Participer' : 'Revoir';
+  });
 }
