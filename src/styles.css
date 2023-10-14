@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: "Lilita One";
-  src: local('Trebutchet MS') ,url("/fonts/LilitaOne-Regular.ttf");
+  src: local('Trebutchet MS'), url("/fonts/LilitaOne-Regular.ttf");
   font-display: swap;
 }
 
