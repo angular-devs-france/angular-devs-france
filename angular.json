@@ -15,6 +15,7 @@
             "configFile": "vite.config.ts",
             "main": "src/main.ts",
             "outputPath": "dist/client",
+            "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/robots.txt"
             ]
