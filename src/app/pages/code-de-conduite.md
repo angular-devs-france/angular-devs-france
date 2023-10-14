@@ -1,6 +1,10 @@
 ---
 title: "Code de conduite"
-description: "Code de conduite de la communauté Angular Devs France"
+meta:
+  - name: description
+    content: Code de conduite de la communauté Angular Devs France
+  - property: og:title
+    content: Code de conduite
 ---
 
 # Code de conduite
