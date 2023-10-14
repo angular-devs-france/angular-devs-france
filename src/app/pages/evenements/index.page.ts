@@ -25,7 +25,6 @@ import {Meta, Title} from "@angular/platform-browser";
   `
 })
 export default class EvenementsComponent {
-  // TODO add sorting
   evenements = injectContentFiles<Evenement>(({filename}) => filename.startsWith('/src/content/evenements/')).sort(
     (a, b) => new Date(b.attributes.date).getTime() - new Date(a.attributes.date).getTime()
   );
