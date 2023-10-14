@@ -20,7 +20,8 @@ export default defineConfig(({ mode }) => ({
       serveStatic: false
     },
     prerender: {
-      routes: [
+      discover: true,
+      routes: async ()=> [
         '/evenements',
         '/a-propos',
         '/code-de-conduite',
