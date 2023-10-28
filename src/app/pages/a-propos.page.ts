@@ -24,6 +24,13 @@ import {Meta, Title} from "@angular/platform-browser";
         <app-people [people]="people.attributes"></app-people>
       </li>
     </ul>
+
+    <h2 class="text-4xl font-bold mt-20 mb-8">La structure</h2>
+
+    <p>Organisation à but non lucratif, Angular Devs France est un groupement de développeurs unis dans la volonté de faciliter l'accès au savoir, avec comme coeur d'intérêt le framework Angular.</p>
+    <p>Notre organisation entretient une politique stricte de neutralité en ce qui concerne les questions politiques et religieuses. Notre mission et nos activités sont délibérément conçues pour rester apolitiques et laïques.</p>
+    <p>L'organisation est indépendante dans ses choix de partage de contenu et n'a pas pour objectif de faciliter la publicité des employeurs de ses membres.</p>
+
     <h2 class="text-4xl font-bold mt-20 mb-8">Hall of Fame</h2>
     <ul class="flex flex-wrap justify-center gap-8">
       <li *ngFor="let people of inactiveStaff">

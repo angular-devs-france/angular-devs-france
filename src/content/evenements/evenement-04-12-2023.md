@@ -1,0 +1,29 @@
+---
+title: "Angular Devs France #3 | NX & Signals"
+date: 2023-12-04
+description: "Comment bien organiser son code? Avec NX et la nouvelle API stable des Signals, Emmanuel, Stephen et Younes nous feront découvrir leur savoir pour mieux structurer votre code et vos projets."
+youtube: 'https://youtube.com/live/yYGk058Q4fU?feature=share'
+image: 'event-4.webp'
+mode: 'online'
+---
+
+## Programme
+
+### Signals en Angular - C'est du Solid(JS) !
+par [Emmanuel Kerjean](https://www.linkedin.com/in/emmanuel-kerjean-656879170/)
+par [Stephen Clodic](https://www.linkedin.com/in/stephen-clodic-772b5153/)
+
+Détecter et réagir aux changements d’états a toujours été un point faible d’Angular. Basée sur ZoneJS, la “detection changes” manque de granularité et peut conduire à un manque de fluidité d’un point de vue UX. L'utilisation de RxJS et/ou de la stratégie “OnPush” d’Angular a permis de compenser en partie ce problème, sans être totalement satisfaisant (syntaxe lourde).
+
+La V16 d'Angular, sortie en mai 2023, dispose d'une nouvelle feature des plus intéressantes : les Signals. Inspirés de SolidJS, les Signals visent à optimiser la réaction aux changements d'Angular, afin de rationaliser l'utilisation de RxJS et conserver une syntaxe claire et concise.
+
+Répondez au signal, et venez assister au talk pour en savoir plus !
+
+
+
+### Finies les apps, pensez libs avec Nx !
+par [Younes Jaaidi](https://twitter.com/yjaaidi)
+
+Qui a dit monorepo ? Bien que Nx soit la principale alternative “human readable” à Bazel pour organiser un monorepo, Nx est aussi un outil permettant de découper aisément nos applications en libs. Cela dit, à quelles fins céderions-nous à une telle tentation ? Par simple esthétisme, ou bien plus ?
+
+Donnons-nous rendez-vous à ce talk pour que vous puissiez observer par vous même les gains que peut vous apporter Nx, dès demain au travers d’une adoption progressive.

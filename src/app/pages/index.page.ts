@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {EvenementComponent} from "../components/evenement.component";
 import {injectContentFiles} from "@analogjs/content";
 import {Evenement} from "../models/evenement.model";
-import {NgIf, NgOptimizedImage} from "@angular/common";
+import {NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-home',
@@ -14,10 +14,11 @@ import {NgIf, NgOptimizedImage} from "@angular/common";
               <h1 class="text-6xl font-bold title">ANGULAR DEVS FRANCE</h1>
               <p class="text-xl">LE rendez-vous de la communauté Angular francophone!</p>
               <p>Rejoignez la communauté en live sur YouTube chaque premier mardi du mois à 19h!</p>
-              <a class="inline-block px-4 py-3 bg-red-600 text-white font-bold rounded-md"
-                 href="https://www.youtube.com/channel/UCmEGS2U5CSzWBt62WnCh_Cw" target="_blank">Découvrir
-                  la chaine
-                  YouTube</a>
+              <a class="inline-flex items-center gap-2 px-4 py-3 bg-red-600 text-white font-bold rounded-md"
+                 href="https://www.youtube.com/channel/UCmEGS2U5CSzWBt62WnCh_Cw" target="_blank">
+                <img ngSrc="/images/youtube.svg" height="24" width="24" alt=""/>
+                Découvrir la chaine YouTube
+              </a>
               <a
                       class="sm:hidden px-4 py-3 bg-blue-700 text-white font-bold rounded-md"
                       href="https://conference-hall.io/public/event/xXhZVEbtz1mMoWZYhsoE"
@@ -27,11 +28,12 @@ import {NgIf, NgOptimizedImage} from "@angular/common";
           </div>
       </div>
 
-
-      <h2 class="text-4xl font-bold mt-20 mb-8 text-center">Prochain événement</h2>
-      <app-event *ngIf="nextEvent; else upcoming" [evenement]="nextEvent"></app-event>
+      <h2 class="text-4xl font-bold mt-20 mb-8 text-center">Prochains événements</h2>
+      <ng-container *ngIf="nextEvents.length; else upcoming">
+        <app-event *ngFor="let event of nextEvents" [evenement]="event"></app-event>
+      </ng-container>
       <ng-template #upcoming>
-        <p class="text-center">Annonce à venir pour la prochaine édition du 7 novembre 2023</p>
+        <p class="text-center">Annonce à venir pour la prochaine édition</p>
       </ng-template>
   `,
   styles: [
@@ -48,12 +50,12 @@ import {NgIf, NgOptimizedImage} from "@angular/common";
   imports: [
     EvenementComponent,
     NgOptimizedImage,
-    NgIf
+    NgIf,
+    NgForOf
   ]
 })
 export default class HomeComponent {
-  nextEvent = injectContentFiles<Evenement>(file => {
+  nextEvents = injectContentFiles<Evenement>(file => {
     return file.filename.startsWith('/src/content/evenements/') && new Date(file.attributes.date) > new Date()
-  })[0];
-
+  }).sort((a, b) => new Date(a.attributes.date).getTime() - new Date(b.attributes.date).getTime());
 }

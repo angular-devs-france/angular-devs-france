@@ -4,6 +4,7 @@ date: 2023-10-03
 description: "Pour cette première édition, nous vous proposons de venir à la rencontre de Nicolas Frizzarin et Matthieu Riegler, deux experts de la communauté Angular."
 youtube: 'https://youtube.com/live/tfcsGzQmyjA?feature=share'
 image: 'event.webp'
+mode: 'online'
 ---
 
 ## Programme

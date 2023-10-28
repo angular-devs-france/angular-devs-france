@@ -14,7 +14,7 @@ import {RouterLink} from "@angular/router";
         <ul>
           <li class="py-1 sm:py-0"><a href="https://twitter.com/AngularDevsFr" target="_blank" title="Rejoignez la communauté sur Twitter">Twitter</a></li>
           <li class="py-1 sm:py-0"><a href="https://www.linkedin.com/company/angular-devs-france" target="_blank" title="Rejoignez la communauté sur LinkedIn">LinkedIn</a></li>
-          <li class="py-1 sm:py-0"><a href="https://discord.gg/c8XThfW9a7" target="_blank" title="Rejoignez la communauté sur le serveur Discord Bonjour Angular">Discord</a></li>
+          <li class="py-1 sm:py-0"><a href="https://discord.gg/c8XThfW9a7" target="_blank" title="Rejoignez la communauté sur le serveur Discord Bonjour Angular">Discord Bonjour Angular</a></li>
         </ul>
       </section>
 
