@@ -1,6 +1,7 @@
 ---
 title: "Angular Devs France #3 | NX & Signals"
 date: 2023-12-04
+startTime: 19h
 description: "Comment bien organiser son code? Avec NX et la nouvelle API stable des Signals, Emmanuel, Stephen et Younes nous feront découvrir leur savoir pour mieux structurer votre code et vos projets."
 youtube: 'https://youtube.com/live/yYGk058Q4fU?feature=share'
 image: 'event-4.webp'

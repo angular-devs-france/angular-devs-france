@@ -14,7 +14,7 @@ import {EvenementLinkComponent} from "./evenement-link.component";
         <h3 class="font-bold text-2xl" itemprop="title">{{evenement.attributes.title}}</h3>
         <p class="flex gap-1 mb-4 italic" itemprop="date">
           <img ngSrc="/images/calendar.svg" height="28" width="24" alt=""/>
-          {{evenement.attributes.date | date}} à 19h
+          {{evenement.attributes.date | date}} à {{evenement.attributes.startTime}}
         </p>
         <p class="line-clamp-4 sm:line-clamp-3" itemprop="description">
           {{evenement.attributes.description}}
