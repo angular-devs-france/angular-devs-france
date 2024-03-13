@@ -12,6 +12,7 @@ import {NgClass, NgIf} from "@angular/common";
         <ul class="flex justify-center items-center gap-4">
           <li><a class="pb-2" routerLink="/" title="Accéder à la page d'accueil">Accueil</a></li>
           <li><a class="pb-2" routerLink="/evenements" routerLinkActive="active" title="Découvrez nos évènements">Evènements</a></li>
+          <li><a class="pb-2" routerLink="/ateliers" routerLinkActive="active" title="Découvrez nos formations gratuites pour la communauté féminine">Ateliers</a></li>
           <li><a class="pb-2" routerLink="/a-propos" routerLinkActive="active" title="Découvrez l\'équipe derrière Angular Devs France">A propos</a></li>
           <li>
             <a
