@@ -13,13 +13,13 @@ import {Component} from "@angular/core";
     <p class="mt-6">Forts d'engagements individuels dans d'autres démarches (Duchess, Ada Tech School, EstimNumérique...), nous avons fait le choix
       de nous investir dans cette nouvelle action dans notre ligne directrice: le partage de connaissances au sein de la communauté Angular.</p>
 
-    <section class="flex justify-between flex-wrap mt-12">
-      <div class="max-w-[45%]">
+    <section class="flex flex-col md:flex-row justify-between flex-wrap mt-12">
+      <div class="md:max-w-[45%]">
         <h2 class="text-2xl mb-6">Un accompagnement par la communauté</h2>
         <p class="mb-6">Nous accompagnons les participantes avec le soutien de développeuses Angular locales qui prennent le rôle de mentor le temps d'une journée.</p>
         <p>Responsables d'un petit groupe qu'elles suivent toute la journée, cet accompagnement permet de profiter d'un moment privilégié entre elles.</p>
       </div>
-      <img class="max-w-[45%]" src="images/girls/adriana.jpg" alt="">
+      <img class="md:max-w-[45%]" src="images/girls/adriana.jpg" alt="">
     </section>
 
     <h3 class="text-2xl mt-12">Prochaines dates</h3>
@@ -38,8 +38,8 @@ import {Component} from "@angular/core";
     -->
 
 
-    <section class="flex justify-between flex-wrap mt-12">
-      <div class="max-w-[45%]">
+    <section class="flex flex-col md:flex-row justify-between flex-wrap mt-12">
+      <div class="md:max-w-[45%]">
         <h3 class="text-3xl mt-12 mb-6">Bientôt dans votre entreprise?</h3>
         <p>Initiative bénévole, nous sommes à la recherche de locaux prêts à accueillir les participantes et les mentors
           pour leur permettre de se réunir dans les meilleurs conditions.</p>
@@ -50,7 +50,7 @@ import {Component} from "@angular/core";
         <a class="py-2 px-4 rounded bg-blue-800 text-white" href="mailto: angulardevsfr@gmail.com">Nous contacter</a>
 
       </div>
-      <img class="max-w-[45%]" src="images/girls/DJI_0173.jpg" alt="">
+      <img class="md:max-w-[45%]" src="images/girls/DJI_0173.jpg" alt="">
     </section>
 
     <img class="mt-16" src="images/girls/groupe.jpeg" alt="">
