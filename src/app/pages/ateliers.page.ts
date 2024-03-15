@@ -30,7 +30,7 @@ import {Component} from "@angular/core";
     <p>En attente du choix d'une date avec les mentors, vous pouvez dès à présent vous préinscrire</p>
 
     <div class="flex justify-center my-12">
-      <a class="inline-block py-2 px-4 rounded bg-blue-800 text-white" href="https://docs.google.com/forms/d/1kn4vxX4jlznhUqCI8TF_pUWlNcHzhoJWmPkOOiu9Ggw/prefill" target="_blank">Préinscription</a>
+      <a class="inline-block py-2 px-4 rounded bg-blue-800 text-white" href="https://docs.google.com/forms/d/e/1FAIpQLScfT5TJFfE0BGTGEVbW0e3bz7uxK4zEjoKl5wPL9Rv_kvAOjw/viewform?usp=sf_link" target="_blank">Préinscription</a>
     </div>
 
     <!--
