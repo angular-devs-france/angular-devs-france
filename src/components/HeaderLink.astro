@@ -1,0 +1,23 @@
+---
+interface Props {
+    href: string;
+    title: string;
+}
+
+const { href, title } = Astro.props;
+
+const { pathname } = Astro.url;
+const isActive = (href === pathname || href === pathname.replace(/\/$/, ''));
+---
+
+<li>
+    <a href={href} class:list={['link', { active: isActive }]} title={title}>
+        <slot />
+    </a>
+</li>
+
+<style>
+    li {
+        position: relative;
+    }
+</style>

@@ -1,0 +1,33 @@
+---
+import HeaderLink from './HeaderLink.astro'
+---
+
+<header class="flex justify-center sm:justify-between items-center px-8 h-16">
+  <a class="hidden sm:block title text-2xl" href="/" title="Accéder à la page d'accueil">ANGULAR DEVS FRANCE</a>
+  <nav>
+    <ul class="flex justify-center items-center gap-4">
+      <li><HeaderLink href="/" title="Accéder à la page d'accueil">Accueil</HeaderLink></li>
+      <li><HeaderLink href="/ateliers" title="Découvrez nos formations gratuites pour la communauté féminine">Ateliers</HeaderLink></li>
+      <li><HeaderLink href="/a-propos" title="Découvrez l'équipe derrière Angular Devs France">A propos</HeaderLink></li>
+      <li>
+        <a
+            class="hidden sm:block px-2 py-1 bg-[#383e97] text-white font-bold rounded-md"
+            href="https://conference-hall.io/public/event/xXhZVEbtz1mMoWZYhsoE"
+            title="Rejoignez notre communauté de speakers en proposant un sujet sur Conference Hall"
+            target="_blank">
+          Proposer un sujet
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .active {
+    border-bottom: 3px solid darkblue;
+  }
+
+  .title {
+    font-family: 'Lilita One', sans-serif;
+  }
+</style>
