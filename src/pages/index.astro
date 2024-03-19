@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import {getCollection} from "astro:content";
+import EventCard from "../components/EventCard.astro";
+
+
+const events = (await getCollection('event'));
+
+const futureEvents = events.filter(event => new Date(event.data.date) > new Date());
+
+---
+
+<Layout title="Angular Devs France - Communauté Angular francophone" description="Découvrez la communauté francophone Angular sur notre chaine YouTube">
+	<div class="flex justify-center items-center flex-wrap gap-8">
+		<Image alt="Logo Angular Devs France" src="/images/logo.webp" height="250" width="250"/>
+		<div class="flex flex-col items-center gap-4 text-center">
+			<h1 class="text-6xl font-bold title">ANGULAR DEVS FRANCE</h1>
+			<p class="text-xl">LE rendez-vous de la communauté Angular francophone!</p>
+			<p>Rejoignez la communauté Angular en live sur YouTube!</p>
+			<a class="inline-flex items-center gap-2 px-4 py-3 bg-red-600 text-white font-bold rounded-md"
+			   href="https://www.youtube.com/channel/UCmEGS2U5CSzWBt62WnCh_Cw" target="_blank">
+				<Image src="/images/youtube.svg" height="24" width="24" alt="" />
+				Découvrir la chaine YouTube
+			</a>
+			<a
+				class="sm:hidden px-4 py-3 bg-[#383e97] text-white font-bold rounded-md"
+				href="https://conference-hall.io/public/event/xXhZVEbtz1mMoWZYhsoE"
+				target="_blank" title="Rejoignez notre communauté de speakers en proposant un sujet sur Conference Hall">
+				Proposer un sujet
+			</a>
+		</div>
+	</div>
+
+	<h2 class="text-4xl font-bold mt-20 mb-8 text-center">Prochains événements</h2>
+
+    <ul>
+        {futureEvents.map(event => (
+                <li>
+					<EventCard event={event.data} />
+				</li>
+        ))}
+    </ul>
+
+</Layout>
+<style>
+	.title {
+		font-family: 'Lilita One', sans-serif;
+	}
+</style>

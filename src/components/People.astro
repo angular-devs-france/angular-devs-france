@@ -1,0 +1,30 @@
+---
+import {type IPeople} from "../models/people.model";
+import {Image} from 'astro:assets';
+interface Props {
+    people: IPeople;
+}
+
+const {people} = Astro.props;
+---
+
+<article class="flex flex-col items-center gap-2">
+    <Image class="rounded-full" height="128" width="128" src={people.picture} alt="" />
+        <h3 class="font-bold" itemprop="name">{people.name}</h3>
+        <ul class="flex gap-2">
+            {people.twitter && (
+                    <li>
+                        <a href={people.twitter} title="Retrouvez moi sur Twitter">
+                            <Image src="/images/twitter.svg" height="20" width="20" alt="" />
+                        </a>
+                    </li>
+            )}
+            {people.linkedin && (
+                    <li>
+                        <a href={people.linkedin} title="Retrouvez moi sur LinkedIn">
+                            <Image src="/images/linkedin.svg" height="20" width="20" alt="" />
+                        </a>
+                    </li>
+            )}
+        </ul>
+</article>

@@ -1,0 +1,47 @@
+---
+import People from '../components/People.astro'
+import {getCollection} from "astro:content";
+import Layout from "../layouts/Layout.astro";
+
+const people = (await getCollection('people'));
+const activeStaff = people.filter(p => p.data.active);
+const inactiveStaff = people.filter(p => !p.data.active);
+---
+
+<Layout title="A propos - Angular Devs France" description="Découvrez notre démarche de partage des connaissances autour d'Angular et l'équipe derrière Angular Devs France">
+    <h1 class="text-4xl sm:text-6xl font-bold mb-8">A propos</h1>
+    <p>LE nouveau rendez-vous de la communauté Angular francophone.</p>
+    <p>Rejoignez nous chaque premier mardi de chaque mois à 19h en live sur YouTube pour découvrir des présentations sur
+        Angular et les technologies web pour vous aider à faire de vous de vrais experts.</p>
+    <p>C'est l'occasion unique de faire fi des frontières et de rencontrer la communauté Angular francophone depuis
+        votre canapé! </p>
+    <p>Abonnez-vous dès maintenant sur les réseaux sociaux pour ne manquer aucun évènement et rejoignez-nous dans cette
+        aventure passionnante de découverte et de partage.</p>
+    <h2 class="text-4xl font-bold mt-20 mb-8 text-center">L'équipe</h2>
+    <ul class="flex flex-wrap justify-center gap-8">
+        {activeStaff.map((people) => (
+                <People people={people.data}/>
+        ))}
+    </ul>
+
+    <h2 class="text-4xl font-bold mt-20 mb-8 text-center">La structure</h2>
+
+    <p>Organisation à but non lucratif, Angular Devs France est un groupement de développeurs unis dans la volonté de
+        faciliter l'accès au savoir, avec comme coeur d'intérêt le framework Angular.</p>
+    <p>Notre organisation entretient une politique stricte de neutralité en ce qui concerne les questions politiques et
+        religieuses. Notre mission et nos activités sont délibérément conçues pour rester apolitiques et laïques.</p>
+    <p>L'organisation est indépendante dans ses choix de partage de contenu et n'a pas pour objectif de faciliter la
+        publicité des employeurs de ses membres.</p>
+
+    <h2 class="text-4xl font-bold mt-20 mb-8 text-center">Hall of Fame</h2>
+    <ul class="flex flex-wrap justify-center gap-8">
+        {inactiveStaff.map((people) => (
+                <People people={people.data}/>
+        ))}
+    </ul>
+</Layout>
+<style>
+    p {
+        margin-bottom: 1rem;
+    }
+</style>
