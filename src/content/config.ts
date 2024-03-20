@@ -15,7 +15,8 @@ const event = defineCollection({
         image: z.string(),
         mode: z.enum(['onsite', 'online']),
         speaker: z.string().optional(),
-        avatar: z.string().optional(),
+        avatars: z.array(z.string()).optional(),
+        type: z.string(),
     }),
 });
 

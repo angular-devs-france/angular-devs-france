@@ -8,5 +8,6 @@ export interface IEvent {
   image: string;
   mode: 'onsite' | 'online';
   speaker?: string;
-  avatar?: string;
+  avatars?: string[];
+  type: string;
 }

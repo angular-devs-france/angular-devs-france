@@ -8,6 +8,8 @@ import EventCard from "../components/EventCard.astro";
 const events = (await getCollection('event'));
 
 const futureEvents = events.filter(event => new Date(event.data.date) > new Date());
+const pastEvents = events.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()).filter(event => new Date(event.data.date) < new Date());
+
 
 ---
 
@@ -32,7 +34,11 @@ const futureEvents = events.filter(event => new Date(event.data.date) > new Date
 		</div>
 	</div>
 
-	<h2 class="text-4xl font-bold mt-20 mb-8 text-center">Prochains événements</h2>
+	<h2 class="text-4xl font-bold mt-20 mb-8 text-center flex items-center m-auto gap-4">
+		<Image src="/images/logo-left.png" height="40" width="20" alt="" />
+		<span>Prochains événements</span>
+		<Image src="/images/logo-right.png" height="40" width="20" alt="" />
+	</h2>
 
     <ul>
         {futureEvents.map(event => (
@@ -41,6 +47,20 @@ const futureEvents = events.filter(event => new Date(event.data.date) > new Date
 				</li>
         ))}
     </ul>
+
+	<h2 class="text-4xl font-bold mt-20 mb-8 text-center flex items-center m-auto gap-4">
+		<Image src="/images/logo-left.png" height="40" width="20" alt="" />
+		<span>Nos derniers événements</span>
+		<Image src="/images/logo-right.png" height="40" width="20" alt="" />
+	</h2>
+
+	<ul>
+		{pastEvents.map(event => (
+			<li>
+				<EventCard event={event.data} isPast={true} />
+			</li>
+		))}
+	</ul>
 
 </Layout>
 <style>

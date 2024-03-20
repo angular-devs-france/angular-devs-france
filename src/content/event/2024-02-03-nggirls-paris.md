@@ -1,11 +1,14 @@
 ---
-title: "ngGirls Paris"
+title: "Paris | Atelier Angular pour la communauté féminine"
 date: 2024-02-03
-startTime: 9h
+startTime: '09:00'
 description: "Formation gratuite à Angular dédiée aux femmes"
 link: 'https://www.ng-girls.org/event/paris-2024'
 image: 'event-6.webp'
 mode: 'onsite'
+type: 'atelier'
+avatars:
+  - '/images/logo-officiel.png'
 ---
 
 ## Programme
