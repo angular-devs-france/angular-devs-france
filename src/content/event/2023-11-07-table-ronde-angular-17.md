@@ -1,11 +1,17 @@
 ---
-title: "Angular Devs France #2 | Sortie Angular 17"
-date: 2023-11-07
-startTime: 19h
+title: "Table ronde Angular 17"
+date: Nov 07 2023
+startTime: '19:00'
 description: "Pour fêter la sortie d'Angular 17, nous vous invitons à assister à une table ronde réunissant plusieurs développeurs Angular afin d'échanger sur les nouvelles features, les changements et les moyens d'en faciliter l'apprentissage."
 youtube: 'https://youtube.com/live/YBty95aSP6c?feature=share'
 image: 'event-2.webp'
 mode: 'online'
+type: 'table ronde'
+avatars:
+  - '/avatars/speakers/edouard-bozon.jpeg'
+  - '/avatars/speakers/cedric-exbrayat.jpeg'
+  - '/avatars/speakers/guillaume-nury.jpeg'
+  - '/avatars/speakers/laurent-duveau.jpeg'
 ---
 
 ## Table ronde

@@ -4,72 +4,75 @@ import Footer from '../components/Footer.astro';
 import BaseHead from '../components/BaseHead.astro';
 
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+    title: string;
+    description: string;
+    image?: string;
 }
 
-const { title, description, image = '/social_share.png' } = Astro.props;
+const {title, description, image = '/social_share.png'} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<BaseHead title={title} description={description} image={image} />
-	<body>
-	<Header />
-	<main class="flex flex-col m-auto grow px-4 py-12 min-h-screen max-w-screen-lg">
-		<slot />
-	</main>
-	<Footer />
-	</body>
+<html lang="fr">
+<BaseHead title={title} description={description} image={image}/>
+<body>
+<Header/>
+<main class=" m-auto min-h-screen max-w-screen-lg">
+    <div class="mx-4 sm:mx-0 flex flex-col grow py-12 ">
+        <slot/>
+    </div>
+</main>
+<Footer/>
+</body>
 </html>
 <style is:global>
-	@font-face {
-		font-family: "Lilita One";
-		src: local('Trebutchet MS'), url("/fonts/LilitaOne-Regular.ttf");
-		font-display: swap;
-	}
+    @font-face {
+        font-family: "Lilita One";
+        src: local('Trebutchet MS'), url("/fonts/LilitaOne-Regular.ttf");
+        font-display: swap;
+    }
 
-	/* You can add global styles to this file, and also import other style files */
-	:root {
-		font-family: Verdana, sans-serif;
-		font-size: 16px;
-		line-height: 24px;
-		font-weight: 400;
+    /* You can add global styles to this file, and also import other style files */
+    :root {
+        font-family: Verdana, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
 
-		color-scheme: light;
+        color-scheme: light;
 
-		font-synthesis: none;
-		text-rendering: optimizeLegibility;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		-webkit-text-size-adjust: 100%;
-	}
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: 100%;
+    }
 
-	body {
-		min-width: 320px;
-		min-height: 100vh;
-		margin: 0 auto;
-		display: flex;
-		flex-direction: column;
-	}
+    body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
 
-	@media (prefers-color-scheme: light) {
-		:root {
-			color: #213547;
-			background-color: #ffffff;
-		}
-		a[routerLink]:hover {
-			color: #747bff;
-		}
+    @media (prefers-color-scheme: light) {
+        :root {
+            color: #213547;
+            background-color: #ffffff;
+        }
 
-		a:not([routerLink]):hover {
-			opacity: 0.7;
-		}
+        a[routerLink]:hover {
+            color: #747bff;
+        }
 
-		button {
-			background-color: #f9f9f9;
-		}
-	}
+        a:not([routerLink]):hover {
+            opacity: 0.7;
+        }
+
+        button {
+            background-color: #f9f9f9;
+        }
+    }
 
 </style>

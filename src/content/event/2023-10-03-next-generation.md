@@ -1,11 +1,15 @@
 ---
-title: "Angular Devs France #1"
+title: "The next generation of Angular Application"
 date: 2023-10-03
-startTime: 19h
+startTime: '19:00'
 description: "Pour cette première édition, nous vous proposons de venir à la rencontre de Nicolas Frizzarin et Matthieu Riegler, deux experts de la communauté Angular."
-youtube: 'https://youtube.com/live/tfcsGzQmyjA?feature=share'
+youtube: 'https://www.youtube.com/live/tfcsGzQmyjA?si=8GOHg_J73AhToNJY&t=247'
 image: 'event.webp'
 mode: 'online'
+type: 'présentation'
+speaker: 'Nicolas Frizzarin'
+avatars:
+  - '/avatars/speakers/nicolas-frizzarin.jpeg'
 ---
 
 ## Programme

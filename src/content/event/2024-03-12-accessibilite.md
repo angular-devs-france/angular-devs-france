@@ -1,11 +1,16 @@
 ---
-title: "Angular Devs France #5 | Core Web Vitals & test e2e"
+title: "Arrêtons de (dé)tester nos applications et nos utilisateurs"
 date: 2024-03-12
-startTime: 19h
+startTime: '19:00'
 description: "Comment améliorer la qualité de nos applications Angular?"
-youtube: 'https://www.youtube.com/live/LoTt12CQmdU?si=S2fFKkQDm9Z86vvX'
+youtube: 'https://www.youtube.com/live/LoTt12CQmdU?si=dtEhpnXrPJP7alu8&t=123'
 image: 'event-8.png'
 mode: 'online'
+speaker: 'Louis Fredice Njako Molom - Stanley Servical'
+type: 'présentation'
+avatars: 
+  - '/avatars/speakers/louis-fredice-njako-molom.jpeg'
+  - '/avatars/speakers/stanley-servical.jpeg'
 ---
 
 ## Programme

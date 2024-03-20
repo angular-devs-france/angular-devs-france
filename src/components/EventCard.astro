@@ -1,39 +1,48 @@
 ---
 import dayjs from 'dayjs';
-import localizedFormat from 'dayjs/plugin/localizedFormat';
 import {type IEvent} from "../models/event.model";
 import {Image} from 'astro:assets';
 
+import 'dayjs/locale/fr';
+
 interface Props {
     event: IEvent;
+    isPast?: boolean;
 }
 
-const { event } = Astro.props;
-dayjs.extend(localizedFormat);
+const { event, isPast } = Astro.props;
+dayjs.locale('fr')
 const displayDate = dayjs(event.date).format('DD MMM');
 ---
 
-<a class="flex flex-wrap flex-col sm:flex-row justify-between shadow-2xl rounded-2xl p-4" href={event.youtube} target="_blank">
-    <div class="flex gap-2">
-        <div class="rounded-2xl bg-neutral-300 p-4 min-h-full w-full flex flex-col justify-center items-center">
+<a class="flex flex-col sm:flex-row justify-between shadow-2xl rounded-2xl p-3 mb-4 gap-4 sm:gap-2" aria-labelledby="title" href={event.youtube} target="_blank">
+    <div class="flex flex-row sm:flex-col gap-2">
+        <div class="rounded-2xl bg-neutral-300 p-2 sm:p-4 flex justify-center items-center gap-4 min-w-[50px] sm:min-w-[180px] w-full">
             <div class="uppercase">{displayDate}</div>
-            <div class="font-bold text-3xl">{event.startTime}</div>
+            {!isPast && <div class="font-bold sm:text-xl">{event.startTime}</div>}
         </div>
-        <div class="rounded-2xl bg-[#383e97] p-4 min-h-full w-full flex flex-col justify-center items-center">
-            <div class="font-bold text-3xl text-white uppercase">Talk</div>
+        <div class="rounded-2xl bg-[#383e97] p-2 sm:p-4 flex flex-col justify-center items-center w-full">
+            <div class="font-bold text-white uppercase">{event.type}</div>
         </div>
     </div>
-    <div class="p-4 flex-1">
-        <h3 class="font-bold text-2xl">{event.title}</h3>
+    <div class="px-4 flex-1">
+        <h3 id="title" class="font-bold text-2xl">{event.title}</h3>
         <div>{event.speaker}</div>
     </div>
-    <Image
-        class="rounded-2xl hidden md:block"
-        src={event.avatar || ''}
-        alt={event.title}
-        width={128}
-        height={128}
-    />
+    <div class="flex flex-wrap gap-2">
+        {event.avatars && event.avatars.map(avatar => (
+            <Image
+                class="rounded-2xl block sm:hidden lg:block"
+                src={avatar || ''}
+                alt={event.title}
+                width={124}
+                height={124}
+            />
+        ))}
+    </div>
 </a>
 <style>
+    .foo {
+        width: 100%;
+    }
 </style>
