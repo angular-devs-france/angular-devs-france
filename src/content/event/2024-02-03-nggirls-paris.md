@@ -8,7 +8,7 @@ image: 'event-6.webp'
 mode: 'onsite'
 type: 'atelier'
 avatars:
-  - '/images/logo-officiel.png'
+  - '/images/logos/other/logo-officiel.png'
 ---
 
 ## Programme

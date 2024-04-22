@@ -8,7 +8,7 @@ image: 'event-3.webp'
 mode: 'onsite'
 type: 'rencontre'
 avatars:
-  - '/images/logo-officiel.png'
+  - '/images/logos/other/logo-officiel.png'
 ---
 
 ## Programme
