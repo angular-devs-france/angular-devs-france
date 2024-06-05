@@ -112,6 +112,24 @@ const intervenants: {url: string; label: string; image: string; alt: string}[] =
 		label: 'compte linkedIn de Fabien Brunet',
 		image: '/avatars/speakers/fabien-brunet.jpeg',
 		alt: 'Fabien Brunet'
+	},
+	{
+		url: 'https://www.linkedin.com/in/arthur-lannelucq/',
+		label: 'compte linkedIn de Arthur Lannelucq',
+		image: '/avatars/speakers/arthur-lannelucq.jpeg',
+		alt: 'Arthur Lannelucq'
+	},
+	{
+		url: 'https://www.linkedin.com/in/denis-souron/',
+		label: 'compte linkedIn de Denis Souron',
+		image: '/avatars/speakers/denis-souron.jpeg',
+		alt: 'Denis Souron'
+	},
+	{
+		url: 'https://www.linkedin.com/in/achautard/',
+		label: 'compte linkedIn de Alain Chautard',
+		image: '/avatars/speakers/alain-chautard.jpeg',
+		alt: 'Alain Chautard'
 	}
 ]
 ---
@@ -153,14 +171,12 @@ const intervenants: {url: string; label: string; image: string; alt: string}[] =
 		Nos intervenants
 	</h2>
 
-	<p></p>
-
-	<ul class="flex flex-wrap gap-4">
+	<ul class="flex justify-center flex-wrap gap-4">
 		{intervenants.map(intervenant => (
 		<li>
 			<a href={intervenant.url} target="_blank" aria-label={intervenant.label}>
 				<Image
-					class="rounded-2xl block sm:hidden lg:block shadow-2xl"
+					class="rounded-2xl block lg:block shadow-2xl"
 					src={intervenant.image}
 					alt={intervenant.alt}
 					width={124}
