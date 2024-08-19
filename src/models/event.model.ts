@@ -5,8 +5,8 @@ export interface IEvent {
   startTime: string;
   youtube?: string;
   link?: string;
-  image: string;
-  mode: 'onsite' | 'online';
+  image?: string;
+  mode: "onsite" | "online";
   speaker?: string;
   avatars?: string[];
   type: string;
