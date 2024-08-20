@@ -5,6 +5,7 @@ startTime: '19:00'
 description: ""
 mode: 'online'
 type: 'présentation'
+youtube: 'https://www.youtube.com/live/QSs9D0bTRVA?si=oLk5NrkQwjO3wsWs'
 avatars:
   - '/avatars/speakers/christopher-holder.jpeg'
 ---
