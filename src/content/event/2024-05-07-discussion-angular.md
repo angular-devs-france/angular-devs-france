@@ -1,10 +1,10 @@
 ---
 title: "On cause Angular"
-date: May 07 2024
+date: 2024-05-07
 startTime: '19:00'
 description: "Discussion ouverte sur Angular avec nos invités"
 youtube: 'https://youtube.com/live/51tncS0DPJE?feature=share'
-image: 'event-2.webp'
+image: '/images/event-2.webp'
 mode: 'online'
 type: 'table ronde'
 avatars:

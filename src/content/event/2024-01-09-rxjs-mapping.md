@@ -1,10 +1,10 @@
 ---
 title: "Higher order observables & higher order mapping operators in RxJs"
-date: Jan 09 2024
+date: 2024-01-09
 startTime: '19:00'
 description: "Programme à définir"
 youtube: 'https://www.youtube.com/live/gJZpreOyqMA?si=KSI8FF4eR5cA80N1&t=2723'
-image: 'event-7.png'
+image: '/images/event-7.png'
 mode: 'online'
 type: 'présentation'
 speaker: 'Lamis Chebbi'

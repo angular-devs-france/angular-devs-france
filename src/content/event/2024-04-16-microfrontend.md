@@ -1,6 +1,6 @@
 ---
 title: "Les micro frontend chez allianz"
-date: 'Apr 16 2024'
+date: 2024-04-16
 startTime: '19:00'
 description: ""
 youtube: 'https://www.youtube.com/live/9GpwRDlp9OY?si=ywTsy8Mdah8_X4fA'

@@ -4,7 +4,7 @@ date: 2024-02-03
 startTime: '09:00'
 description: "Formation gratuite à Angular dédiée aux femmes"
 link: 'https://www.ng-girls.org/event/paris-2024'
-image: 'event-6.webp'
+image: '/images/event-6.webp'
 mode: 'onsite'
 type: 'atelier'
 avatars:

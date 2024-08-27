@@ -1,6 +1,6 @@
 ---
 title: "Comment implémenter l'accessibilité numérique avec Angular ?"
-date: 'Apr 02 2024'
+date: 2024-04-02
 startTime: '19:00'
 description: ""
 youtube: 'https://youtube.com/live/PJMunSlLgoA?feature=share'
