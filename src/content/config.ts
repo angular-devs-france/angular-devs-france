@@ -32,4 +32,12 @@ const people = defineCollection({
   }),
 });
 
-export const collections = { event, people };
+const speaker = defineCollection({
+  schema: z.object({
+    linkedin: z.string(),
+    picture: z.string(),
+    name: z.string(),
+  }),
+});
+
+export const collections = { event, people, speaker };
