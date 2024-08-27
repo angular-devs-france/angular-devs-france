@@ -1,11 +1,12 @@
 ---
 title: "Maintenir un design system avec Storybook et Angular"
-date: Sep 03 2024
+date: 2024-09-03
 startTime: '19:00'
 description: ""
 mode: 'online'
 type: 'présentation'
 youtube: 'https://www.youtube.com/live/QSs9D0bTRVA?si=oLk5NrkQwjO3wsWs'
+speaker: Christopher Holder
 avatars:
   - '/avatars/speakers/christopher-holder.jpeg'
 ---

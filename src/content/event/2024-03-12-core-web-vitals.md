@@ -4,7 +4,7 @@ date: 2024-03-12
 startTime: '19:00'
 description: "Comment améliorer la qualité de nos applications Angular?"
 youtube: 'https://www.youtube.com/live/LoTt12CQmdU?si=h4FgIhwZuoC6BuKy&t=3382'
-image: 'event-8.png'
+image: '/images/event-8.png'
 mode: 'online'
 type: 'présentation'
 speaker: 'Nicolas FRIZZARIN'
