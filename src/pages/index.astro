@@ -1,207 +1,286 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import {getCollection} from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import EventCard from "../components/EventCard.astro";
 
+const events = await getCollection("event");
 
-const events = (await getCollection('event'));
+const futureEvents = events.filter(
+  (event) => new Date(event.data.date) > new Date()
+);
+const pastEvents = events
+  .sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  )
+  .filter((event) => new Date(event.data.date) < new Date());
 
-const futureEvents = events.filter(event => new Date(event.data.date) > new Date());
-const pastEvents = events.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()).filter(event => new Date(event.data.date) < new Date());
-
-const intervenants: {url: string; label: string; image: string; alt: string}[] = [
-	{
-		url: 'https://www.linkedin.com/in/nicolas-frizzarin/',
-		label: 'compte linkedIn de Nicolas Frizzarin',
-		image: '/avatars/speakers/nicolas-frizzarin.jpeg',
-		alt: 'Nicolas Frizzarin'
-	},
-	{
-		url: 'https://www.linkedin.com/in/matthieuriegler/',
-		label: 'compte linkedIn de Matthieu Riegler',
-		image: '/avatars/speakers/matthieu-riegler.jpeg',
-		alt: 'Matthieu Riegler'
-	},
-	{
-		url: 'https://www.linkedin.com/in/edouardbozon/',
-		label: 'compte linkedIn d\'Edouard Bozon',
-		image: '/avatars/speakers/edouard-bozon.jpeg',
-		alt: 'Edouard Bozon'
-	},
-	{
-		url: 'https://www.linkedin.com/in/exbrayatcedric/',
-		label: 'compte linkedIn de Cédric Exbrayat',
-		image: '/avatars/speakers/cedric-exbrayat.jpeg',
-		alt: 'Cédric Exbrayat'
-	},
-	{
-		url: 'https://www.linkedin.com/in/guillaume-nury-732095ab/',
-		label: 'compte linkedIn de Guillaume Nury',
-		image: '/avatars/speakers/guillaume-nury.jpeg',
-		alt: 'Guillaume Nury'
-	},
-	{
-		url: 'https://www.linkedin.com/in/laurentduveau/',
-		label: 'compte linkedIn de Laurent Duveau',
-		image: '/avatars/speakers/laurent-duveau.jpeg',
-		alt: 'Laurent Duveau'
-	},
-	{
-		url: 'https://www.linkedin.com/in/emmanuel-kerjean-656879170/',
-		label: 'compte linkedIn d\'Emmanuel Kerjean',
-		image: '/avatars/speakers/emmanuel-kerjean.jpeg',
-		alt: 'Emmanuel Kerjean'
-	},
-	{
-		url: 'https://www.linkedin.com/in/stephen-clodic-772b5153/',
-		label: 'compte linkedIn de Stephen Clodic',
-		image: '/avatars/speakers/stephen-clodic.jpeg',
-		alt: 'Stephen Clodic'
-	},
-	{
-		url: 'https://www.linkedin.com/in/yjaaidi/',
-		label: 'compte linkedIn de Younes Jaaidi',
-		image: '/avatars/speakers/younes-jaaidi.jpeg',
-		alt: 'Younes Jaaidi'
-	},
-	{
-		url: 'https://www.linkedin.com/in/lamis-chebbi-026368ab/',
-		label: 'compte linkedIn de Lamis Chebbi',
-		image: '/avatars/speakers/lamis-chebbi.jpeg',
-		alt: 'Lamis Chebbi'
-	},
-	{
-		url: 'https://www.linkedin.com/in/benjilegnard/',
-		label: 'compte linkedIn de Benjamin Legrand',
-		image: '/avatars/speakers/benjamin-legrand.jpeg',
-		alt: 'Benjamin Legrand'
-	},
-	{
-		url: 'https://www.linkedin.com/in/fanny-weisenburger-9a45614a/',
-		label: 'compte linkedIn de Fanny Weisenburger',
-		image: '/avatars/speakers/fanny-weisenburger.jpeg',
-		alt: 'Fanny Weisenburger'
-	},
-	{
-		url: 'https://www.linkedin.com/in/adriana-nava-aguilar/overlay/photo/',
-		label: 'compte linkedIn d\'Adriana Nava Aguilar',
-		image: '/avatars/speakers/adriana-nava-aguilar.jpeg',
-		alt: 'Adriana Nava Aguilar'
-	},
-	{
-		url: 'https://www.linkedin.com/in/louis-fredice-njako-molom-268bab292/',
-		label: 'compte linkedIn de Louis Fredice Njako Molom',
-		image: '/avatars/speakers/louis-fredice-njako-molom.jpeg',
-		alt: 'Louis-Fredice Njako Molom'
-	},
-	{
-		url: 'https://www.linkedin.com/in/stanley-s-88a34b52/',
-		label: 'compte linkedIn de Stanley Servical',
-		image: '/avatars/speakers/stanley-servical.jpeg',
-		alt: 'Stanley Servical'
-	},
-	{
-		url: 'https://www.linkedin.com/in/emmanuelle-aboaf/',
-		label: 'compte linkedIn d\'Emmanuelle Aboaf',
-		image: '/avatars/speakers/emmanuelle-aboaf.png',
-		alt: 'Emmanuelle Aboaf'
-	},
-	{
-		url: 'https://www.linkedin.com/in/fbrunet/',
-		label: 'compte linkedIn de Fabien Brunet',
-		image: '/avatars/speakers/fabien-brunet.jpeg',
-		alt: 'Fabien Brunet'
-	},
-	{
-		url: 'https://www.linkedin.com/in/arthur-lannelucq/',
-		label: 'compte linkedIn de Arthur Lannelucq',
-		image: '/avatars/speakers/arthur-lannelucq.jpeg',
-		alt: 'Arthur Lannelucq'
-	},
-	{
-		url: 'https://www.linkedin.com/in/denis-souron/',
-		label: 'compte linkedIn de Denis Souron',
-		image: '/avatars/speakers/denis-souron.jpeg',
-		alt: 'Denis Souron'
-	},
-	{
-		url: 'https://www.linkedin.com/in/achautard/',
-		label: 'compte linkedIn de Alain Chautard',
-		image: '/avatars/speakers/alain-chautard.jpeg',
-		alt: 'Alain Chautard'
-	}
-]
+const intervenants: {
+  url: string;
+  label: string;
+  image: string;
+  alt: string;
+}[] = [
+  {
+    url: "https://www.linkedin.com/in/nicolas-frizzarin/",
+    label: "compte linkedIn de Nicolas Frizzarin",
+    image: "/avatars/speakers/nicolas-frizzarin.jpeg",
+    alt: "Nicolas Frizzarin",
+  },
+  {
+    url: "https://www.linkedin.com/in/matthieuriegler/",
+    label: "compte linkedIn de Matthieu Riegler",
+    image: "/avatars/speakers/matthieu-riegler.jpeg",
+    alt: "Matthieu Riegler",
+  },
+  {
+    url: "https://www.linkedin.com/in/edouardbozon/",
+    label: "compte linkedIn d'Edouard Bozon",
+    image: "/avatars/speakers/edouard-bozon.jpeg",
+    alt: "Edouard Bozon",
+  },
+  {
+    url: "https://www.linkedin.com/in/exbrayatcedric/",
+    label: "compte linkedIn de Cédric Exbrayat",
+    image: "/avatars/speakers/cedric-exbrayat.jpeg",
+    alt: "Cédric Exbrayat",
+  },
+  {
+    url: "https://www.linkedin.com/in/guillaume-nury-732095ab/",
+    label: "compte linkedIn de Guillaume Nury",
+    image: "/avatars/speakers/guillaume-nury.jpeg",
+    alt: "Guillaume Nury",
+  },
+  {
+    url: "https://www.linkedin.com/in/laurentduveau/",
+    label: "compte linkedIn de Laurent Duveau",
+    image: "/avatars/speakers/laurent-duveau.jpeg",
+    alt: "Laurent Duveau",
+  },
+  {
+    url: "https://www.linkedin.com/in/emmanuel-kerjean-656879170/",
+    label: "compte linkedIn d'Emmanuel Kerjean",
+    image: "/avatars/speakers/emmanuel-kerjean.jpeg",
+    alt: "Emmanuel Kerjean",
+  },
+  {
+    url: "https://www.linkedin.com/in/stephen-clodic-772b5153/",
+    label: "compte linkedIn de Stephen Clodic",
+    image: "/avatars/speakers/stephen-clodic.jpeg",
+    alt: "Stephen Clodic",
+  },
+  {
+    url: "https://www.linkedin.com/in/yjaaidi/",
+    label: "compte linkedIn de Younes Jaaidi",
+    image: "/avatars/speakers/younes-jaaidi.jpeg",
+    alt: "Younes Jaaidi",
+  },
+  {
+    url: "https://www.linkedin.com/in/lamis-chebbi-026368ab/",
+    label: "compte linkedIn de Lamis Chebbi",
+    image: "/avatars/speakers/lamis-chebbi.jpeg",
+    alt: "Lamis Chebbi",
+  },
+  {
+    url: "https://www.linkedin.com/in/benjilegnard/",
+    label: "compte linkedIn de Benjamin Legrand",
+    image: "/avatars/speakers/benjamin-legrand.jpeg",
+    alt: "Benjamin Legrand",
+  },
+  {
+    url: "https://www.linkedin.com/in/fanny-weisenburger-9a45614a/",
+    label: "compte linkedIn de Fanny Weisenburger",
+    image: "/avatars/speakers/fanny-weisenburger.jpeg",
+    alt: "Fanny Weisenburger",
+  },
+  {
+    url: "https://www.linkedin.com/in/adriana-nava-aguilar/overlay/photo/",
+    label: "compte linkedIn d'Adriana Nava Aguilar",
+    image: "/avatars/speakers/adriana-nava-aguilar.jpeg",
+    alt: "Adriana Nava Aguilar",
+  },
+  {
+    url: "https://www.linkedin.com/in/louis-fredice-njako-molom-268bab292/",
+    label: "compte linkedIn de Louis Fredice Njako Molom",
+    image: "/avatars/speakers/louis-fredice-njako-molom.jpeg",
+    alt: "Louis-Fredice Njako Molom",
+  },
+  {
+    url: "https://www.linkedin.com/in/stanley-s-88a34b52/",
+    label: "compte linkedIn de Stanley Servical",
+    image: "/avatars/speakers/stanley-servical.jpeg",
+    alt: "Stanley Servical",
+  },
+  {
+    url: "https://www.linkedin.com/in/emmanuelle-aboaf/",
+    label: "compte linkedIn d'Emmanuelle Aboaf",
+    image: "/avatars/speakers/emmanuelle-aboaf.png",
+    alt: "Emmanuelle Aboaf",
+  },
+  {
+    url: "https://www.linkedin.com/in/fbrunet/",
+    label: "compte linkedIn de Fabien Brunet",
+    image: "/avatars/speakers/fabien-brunet.jpeg",
+    alt: "Fabien Brunet",
+  },
+  {
+    url: "https://www.linkedin.com/in/arthur-lannelucq/",
+    label: "compte linkedIn de Arthur Lannelucq",
+    image: "/avatars/speakers/arthur-lannelucq.jpeg",
+    alt: "Arthur Lannelucq",
+  },
+  {
+    url: "https://www.linkedin.com/in/denis-souron/",
+    label: "compte linkedIn de Denis Souron",
+    image: "/avatars/speakers/denis-souron.jpeg",
+    alt: "Denis Souron",
+  },
+  {
+    url: "https://www.linkedin.com/in/achautard/",
+    label: "compte linkedIn de Alain Chautard",
+    image: "/avatars/speakers/alain-chautard.jpeg",
+    alt: "Alain Chautard",
+  },
+];
 ---
 
-<Layout title="Angular Devs France - Communauté Angular francophone" description="Découvrez la communauté francophone Angular sur notre chaine YouTube">
-	<div class="flex justify-center items-center flex-wrap gap-8">
-		<Image alt="Logo Angular Devs France" loading="eager" src="/images/logos/adf/actual/logo.webp" height="250" width="250"/>
-		<div class="flex flex-col items-center gap-4 text-center">
-			<h1 class="text-6xl font-bold title">ANGULAR DEVS FRANCE</h1>
-			<p class="text-xl">LE rendez-vous de la communauté Angular francophone!</p>
-			<p>Rejoignez la communauté Angular en live sur YouTube!</p>
-			<a class="inline-flex items-center gap-2 px-4 py-3 bg-red-600 text-white font-bold rounded-md"
-			   href="https://www.youtube.com/channel/UCmEGS2U5CSzWBt62WnCh_Cw" target="_blank">
-				<Image src="/images/logos/other/social/youtube.svg" loading="eager" height="24" width="24" alt="" />
-				Découvrir la chaine YouTube
-			</a>
-			<a
-				class="sm:hidden px-4 py-3 bg-[#383e97] text-white font-bold rounded-md"
-				href="https://conference-hall.io/public/event/xXhZVEbtz1mMoWZYhsoE"
-				target="_blank" title="Rejoignez notre communauté de speakers en proposant un sujet sur Conference Hall">
-				Proposer un sujet
-			</a>
-		</div>
-	</div>
+<Layout
+  title="Angular Devs France - Communauté Angular francophone"
+  description="Découvrez la communauté francophone Angular sur notre chaine YouTube"
+>
+  <div class="flex justify-center items-center flex-wrap gap-8">
+    <Image
+      alt="Logo Angular Devs France"
+      loading="eager"
+      src="/images/logos/adf/actual/logo.webp"
+      height="250"
+      width="250"
+    />
+    <div class="flex flex-col items-center gap-4 text-center">
+      <h1 class="text-6xl font-bold title">ANGULAR DEVS FRANCE</h1>
+      <p class="text-xl">
+        LE rendez-vous de la communauté Angular francophone!
+      </p>
+      <p>Rejoignez la communauté Angular en live sur YouTube!</p>
+      <a
+        class="inline-flex items-center gap-2 px-4 py-3 bg-red-600 text-white font-bold rounded-md"
+        href="https://www.youtube.com/channel/UCmEGS2U5CSzWBt62WnCh_Cw"
+        target="_blank"
+      >
+        <Image
+          src="/images/logos/other/social/youtube.svg"
+          loading="eager"
+          height="24"
+          width="24"
+          alt=""
+        />
+        Découvrir la chaine YouTube
+      </a>
+      <a
+        class="sm:hidden px-4 py-3 bg-[#383e97] text-white font-bold rounded-md"
+        href="https://conference-hall.io/public/event/xXhZVEbtz1mMoWZYhsoE"
+        target="_blank"
+        title="Rejoignez notre communauté de speakers en proposant un sujet sur Conference Hall"
+      >
+        Proposer un sujet
+      </a>
+    </div>
+  </div>
 
-	<h2 class="text-4xl font-bold mt-20 mb-8 text-center flex items-center m-auto gap-4">
-		Prochains événements
-	</h2>
+  <h2
+    class="text-4xl font-bold mt-20 mb-8 text-center flex items-center m-auto gap-4"
+  >
+    Prochains événements
+  </h2>
 
-    <ul>
-        {futureEvents.map(event => (
-                <li>
-					<EventCard event={event.data} />
-				</li>
-        ))}
-    </ul>
+  <ul>
+    {
+      futureEvents.map((event) => (
+        <li>
+          <EventCard event={event.data} />
+        </li>
+      ))
+    }
+  </ul>
 
-	<h2 class="text-4xl font-bold mt-20 mb-8 text-center flex items-center m-auto gap-4">
-		Nos intervenants
-	</h2>
+  <p class="text-center">Pour ne manquer aucun événement :</p>
+  <ul class="flex flex-row justify-center">
+    <li>
+      <a
+        href="https://calendar.google.com/calendar/embed?src=628897f1029c03ab30fd085e39b68cc6ee9955022325274f297278ec7955f22e%40group.calendar.google.com&ctz=Europe%2FParis"
+        target="_blank"
+      >
+        <Image
+          src="/images/logos/other/social/google-agenda.png"
+          loading="eager"
+          height="80"
+          width="80"
+          alt="Google Agenda"
+        /></a
+      >
+    </li>
+    <li>
+      <a
+        href="https://calendar.google.com/calendar/ical/628897f1029c03ab30fd085e39b68cc6ee9955022325274f297278ec7955f22e%40group.calendar.google.com/public/basic.ics"
+        target="_blank"
+      >
+        <Image
+          src="/images/logos/other/social/google-agenda-ical.png"
+          loading="eager"
+          height="80"
+          width="80"
+          alt="Google Agenda iCal"
+        /></a
+      >
+    </li>
+  </ul>
 
-	<ul class="flex justify-center flex-wrap gap-4">
-		{intervenants.map(intervenant => (
-		<li>
-			<a href={intervenant.url} target="_blank" aria-label={intervenant.label}>
-				<Image
-					class="rounded-2xl block lg:block shadow-2xl"
-					src={intervenant.image}
-					alt={intervenant.alt}
-					width={124}
-					height={124}
-				/>
-			</a>
-		</li>
-		))}
-	</ul>
+  <h2
+    class="text-4xl font-bold mt-20 mb-8 text-center flex items-center m-auto gap-4"
+  >
+    Nos intervenants
+  </h2>
 
-	<h2 class="text-4xl font-bold mt-20 mb-8 text-center flex items-center m-auto gap-4">
-		Nos derniers événements
-	</h2>
+  <ul class="flex justify-center flex-wrap gap-4">
+    {
+      intervenants.map((intervenant) => (
+        <li>
+          <a
+            href={intervenant.url}
+            target="_blank"
+            aria-label={intervenant.label}
+          >
+            <Image
+              class="rounded-2xl block lg:block shadow-2xl"
+              src={intervenant.image}
+              alt={intervenant.alt}
+              width={124}
+              height={124}
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 
-	<ul>
-		{pastEvents.map(event => (
-			<li>
-				<EventCard event={event.data} isPast={true} />
-			</li>
-		))}
-	</ul>
+  <h2
+    class="text-4xl font-bold mt-20 mb-8 text-center flex items-center m-auto gap-4"
+  >
+    Nos derniers événements
+  </h2>
 
+  <ul>
+    {
+      pastEvents.map((event) => (
+        <li>
+          <EventCard event={event.data} isPast={true} />
+        </li>
+      ))
+    }
+  </ul>
 </Layout>
 <style>
-	.title {
-		font-family: 'Lilita One', sans-serif;
-	}
+  .title {
+    font-family: "Lilita One", sans-serif;
+  }
 </style>
