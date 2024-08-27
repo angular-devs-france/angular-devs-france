@@ -20,128 +20,14 @@ const intervenants: {
   label: string;
   image: string;
   alt: string;
-}[] = [
-  {
-    url: "https://www.linkedin.com/in/nicolas-frizzarin/",
-    label: "compte linkedIn de Nicolas Frizzarin",
-    image: "/avatars/speakers/nicolas-frizzarin.jpeg",
-    alt: "Nicolas Frizzarin",
-  },
-  {
-    url: "https://www.linkedin.com/in/matthieuriegler/",
-    label: "compte linkedIn de Matthieu Riegler",
-    image: "/avatars/speakers/matthieu-riegler.jpeg",
-    alt: "Matthieu Riegler",
-  },
-  {
-    url: "https://www.linkedin.com/in/edouardbozon/",
-    label: "compte linkedIn d'Edouard Bozon",
-    image: "/avatars/speakers/edouard-bozon.jpeg",
-    alt: "Edouard Bozon",
-  },
-  {
-    url: "https://www.linkedin.com/in/exbrayatcedric/",
-    label: "compte linkedIn de Cédric Exbrayat",
-    image: "/avatars/speakers/cedric-exbrayat.jpeg",
-    alt: "Cédric Exbrayat",
-  },
-  {
-    url: "https://www.linkedin.com/in/guillaume-nury-732095ab/",
-    label: "compte linkedIn de Guillaume Nury",
-    image: "/avatars/speakers/guillaume-nury.jpeg",
-    alt: "Guillaume Nury",
-  },
-  {
-    url: "https://www.linkedin.com/in/laurentduveau/",
-    label: "compte linkedIn de Laurent Duveau",
-    image: "/avatars/speakers/laurent-duveau.jpeg",
-    alt: "Laurent Duveau",
-  },
-  {
-    url: "https://www.linkedin.com/in/emmanuel-kerjean-656879170/",
-    label: "compte linkedIn d'Emmanuel Kerjean",
-    image: "/avatars/speakers/emmanuel-kerjean.jpeg",
-    alt: "Emmanuel Kerjean",
-  },
-  {
-    url: "https://www.linkedin.com/in/stephen-clodic-772b5153/",
-    label: "compte linkedIn de Stephen Clodic",
-    image: "/avatars/speakers/stephen-clodic.jpeg",
-    alt: "Stephen Clodic",
-  },
-  {
-    url: "https://www.linkedin.com/in/yjaaidi/",
-    label: "compte linkedIn de Younes Jaaidi",
-    image: "/avatars/speakers/younes-jaaidi.jpeg",
-    alt: "Younes Jaaidi",
-  },
-  {
-    url: "https://www.linkedin.com/in/lamis-chebbi-026368ab/",
-    label: "compte linkedIn de Lamis Chebbi",
-    image: "/avatars/speakers/lamis-chebbi.jpeg",
-    alt: "Lamis Chebbi",
-  },
-  {
-    url: "https://www.linkedin.com/in/benjilegnard/",
-    label: "compte linkedIn de Benjamin Legrand",
-    image: "/avatars/speakers/benjamin-legrand.jpeg",
-    alt: "Benjamin Legrand",
-  },
-  {
-    url: "https://www.linkedin.com/in/fanny-weisenburger-9a45614a/",
-    label: "compte linkedIn de Fanny Weisenburger",
-    image: "/avatars/speakers/fanny-weisenburger.jpeg",
-    alt: "Fanny Weisenburger",
-  },
-  {
-    url: "https://www.linkedin.com/in/adriana-nava-aguilar/overlay/photo/",
-    label: "compte linkedIn d'Adriana Nava Aguilar",
-    image: "/avatars/speakers/adriana-nava-aguilar.jpeg",
-    alt: "Adriana Nava Aguilar",
-  },
-  {
-    url: "https://www.linkedin.com/in/louis-fredice-njako-molom-268bab292/",
-    label: "compte linkedIn de Louis Fredice Njako Molom",
-    image: "/avatars/speakers/louis-fredice-njako-molom.jpeg",
-    alt: "Louis-Fredice Njako Molom",
-  },
-  {
-    url: "https://www.linkedin.com/in/stanley-s-88a34b52/",
-    label: "compte linkedIn de Stanley Servical",
-    image: "/avatars/speakers/stanley-servical.jpeg",
-    alt: "Stanley Servical",
-  },
-  {
-    url: "https://www.linkedin.com/in/emmanuelle-aboaf/",
-    label: "compte linkedIn d'Emmanuelle Aboaf",
-    image: "/avatars/speakers/emmanuelle-aboaf.png",
-    alt: "Emmanuelle Aboaf",
-  },
-  {
-    url: "https://www.linkedin.com/in/fbrunet/",
-    label: "compte linkedIn de Fabien Brunet",
-    image: "/avatars/speakers/fabien-brunet.jpeg",
-    alt: "Fabien Brunet",
-  },
-  {
-    url: "https://www.linkedin.com/in/arthur-lannelucq/",
-    label: "compte linkedIn de Arthur Lannelucq",
-    image: "/avatars/speakers/arthur-lannelucq.jpeg",
-    alt: "Arthur Lannelucq",
-  },
-  {
-    url: "https://www.linkedin.com/in/denis-souron/",
-    label: "compte linkedIn de Denis Souron",
-    image: "/avatars/speakers/denis-souron.jpeg",
-    alt: "Denis Souron",
-  },
-  {
-    url: "https://www.linkedin.com/in/achautard/",
-    label: "compte linkedIn de Alain Chautard",
-    image: "/avatars/speakers/alain-chautard.jpeg",
-    alt: "Alain Chautard",
-  },
-];
+}[] = (await getCollection("speaker"))
+  .toSorted((a, b) => a.data.name.localeCompare(b.data.name))
+  .map((s) => ({
+    url: s.data.linkedin,
+    label: `compte LinkedIn de ${s.data.name}`,
+    image: s.data.picture,
+    alt: s.data.name,
+  }));
 ---
 
 <Layout
