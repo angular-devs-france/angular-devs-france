@@ -10,13 +10,13 @@ import type { IEvent } from "../models/event.model";
 dayjs.extend(isSameOrBefore);
 
 const events = (await getCollection("event"))
+  .map((event) => event.data as IEvent)
+  .filter((event) => !(event.hidden ?? false))
   .filter(
     (event) =>
-      event.data.type !== "watch-parties" ||
-      dayjs().isSameOrBefore(event.data.date, "day")
-  )
-  .map((event) => event.data as IEvent);
-
+      event.type !== "watch-parties" ||
+      dayjs().isSameOrBefore(event.date, "day")
+  );
 const futureEvents = events.filter((event) =>
   dayjs().isSameOrBefore(event.date, "day")
 );

@@ -10,6 +10,7 @@ const zBaseEvent = z.object({
   link: z.string().optional(),
   image: z.string().optional(),
   avatars: z.array(z.string()).optional(),
+  hidden: z.boolean().optional(),
 });
 
 const zBasicEvent = zBaseEvent.extend({
