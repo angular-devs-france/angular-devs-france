@@ -1,0 +1,14 @@
+---
+interface Props {
+  link: string;
+}
+
+const { link } = Astro.props;
+---
+
+<a
+  class="flex flex-col sm:flex-row justify-between shadow-2xl rounded-2xl p-3 mb-4 gap-4 sm:gap-2"
+  aria-labelledby="title"
+  href={link}
+  target="_blank"><slot /></a
+>

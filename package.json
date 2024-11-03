@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@anthonypena/fp": "^1.0.1",
     "@astrojs/check": "^0.5.9",
     "@astrojs/mdx": "^2.2.0",
     "@astrojs/rss": "^4.0.7",

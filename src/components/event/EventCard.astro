@@ -3,6 +3,7 @@ import { type IEvent } from "../../models/event.model";
 
 import OnlineEventCard from "./OnlineEventCard.astro";
 import OnsiteEventCard from "./OnsiteEventCard.astro";
+import WatchPartiesEventCard from "./WatchPartiesEventCard.astro";
 
 interface Props {
   event: IEvent;
@@ -15,7 +16,9 @@ const { event, isPast } = Astro.props;
 {
   event.mode === "online" ? (
     <OnlineEventCard event={event} isPast={isPast} />
-  ) : (
+  ) : event.mode === "onsite" ? (
     <OnsiteEventCard event={event} isPast={isPast} />
+  ) : (
+    <WatchPartiesEventCard event={event} isPast={isPast} />
   )
 }

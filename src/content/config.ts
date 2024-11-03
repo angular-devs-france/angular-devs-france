@@ -29,28 +29,19 @@ const zOnlineEvent = zBasicEvent.extend({
   mode: z.enum(["online"]),
   youtube: z.string(),
 });
+const zWatchPartiesEvent = zBaseEvent.extend({
+  mode: z.enum(["hybrid"]),
+  type: z.enum(["watch-parties"]),
+  youtube: z.string().nullish(),
+  cities: z.array(z.object({ city: z.string(), link: z.string().nullish() })),
+});
 
-const zEvent = z.union([zOnsiteEvent, zOnlineEvent]);
+const zEvent = z.union([zOnsiteEvent, zOnlineEvent, zWatchPartiesEvent]);
 
 export type IOnsiteEvent = z.infer<typeof zOnsiteEvent>;
 export type IOnlineEvent = z.infer<typeof zOnlineEvent>;
-const event = defineCollection({
-  // Type-check frontmatter using a schema
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    // Transform string to Date object
-    date: z.coerce.date(),
-    startTime: z.string(),
-    youtube: z.string().optional(),
-    link: z.string().optional(),
-    image: z.string().optional(),
-    mode: z.enum(["onsite", "online"]),
-    speaker: z.string().optional(),
-    avatars: z.array(z.string()).optional(),
-    type: z.string(),
-  }),
-export type IEvent = IOnsiteEvent | IOnlineEvent;
+export type IWatchPartiesEvent = z.infer<typeof zWatchPartiesEvent>;
+export type IEvent = IOnsiteEvent | IOnlineEvent | IWatchPartiesEvent;
 
 const event = defineCollection({
   // Type-check frontmatter using a schema

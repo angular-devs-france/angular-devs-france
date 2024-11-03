@@ -2,6 +2,7 @@
 import dayjs from "dayjs";
 import { type IOnlineEvent } from "../../models/event.model";
 import { Image } from "astro:assets";
+import LinkCard from "./fragment/LinkCard.astro";
 
 import "dayjs/locale/fr";
 
@@ -15,12 +16,7 @@ dayjs.locale("fr");
 const displayDate = dayjs(event.date).format("DD MMM");
 ---
 
-<a
-  class="flex flex-col sm:flex-row justify-between shadow-2xl rounded-2xl p-3 mb-4 gap-4 sm:gap-2"
-  aria-labelledby="title"
-  href={event.youtube}
-  target="_blank"
->
+<LinkCard link={event.youtube}>
   <div class="flex flex-row sm:flex-col gap-2">
     <div
       class="rounded-2xl bg-neutral-300 p-2 sm:p-4 flex justify-center items-center gap-4 min-w-[50px] sm:min-w-[180px] w-full"
@@ -52,4 +48,4 @@ const displayDate = dayjs(event.date).format("DD MMM");
         ))
     }
   </div>
-</a>
+</LinkCard>

@@ -1,22 +1,27 @@
 ---
+import { isDefined } from "@anthonypena/fp";
 import dayjs from "dayjs";
+import { type IWatchPartiesEvent } from "../../models/event.model";
 import { Image } from "astro:assets";
-import type { IOnsiteEvent } from "../../models/event.model";
-import SimpleCard from "./fragment/SimpleCard.astro";
 
 import "dayjs/locale/fr";
+import LinkCard from "./fragment/LinkCard.astro";
+import SimpleCard from "./fragment/SimpleCard.astro";
 
 interface Props {
-  event: IOnsiteEvent;
+  event: IWatchPartiesEvent;
   isPast?: boolean;
 }
 
 const { event, isPast } = Astro.props;
 dayjs.locale("fr");
 const displayDate = dayjs(event.date).format("DD MMM");
+const Card = (
+  isDefined(event.link) ? LinkCard : SimpleCard
+) as typeof LinkCard & typeof SimpleCard;
 ---
 
-<SimpleCard>
+<Card link={event.youtube}>
   <div class="flex flex-row sm:flex-col gap-2">
     <div
       class="rounded-2xl bg-neutral-300 p-2 sm:p-4 flex justify-center items-center gap-4 min-w-[50px] sm:min-w-[180px] w-full"
@@ -32,14 +37,13 @@ const displayDate = dayjs(event.date).format("DD MMM");
   </div>
   <div class="px-4 flex-1">
     <h3 id="title" class="font-bold text-2xl">{event.title}</h3>
-    <div>{event.speaker}</div>
   </div>
   <div class="flex flex-wrap gap-2">
     {
       event.avatars &&
         event.avatars.map((avatar) => (
           <Image
-            class="rounded-2xl block sm:hidden lg:block"
+            class="rounded-2xl h-[124px] block sm:hidden lg:block"
             src={avatar || ""}
             alt={event.title}
             width={124}
@@ -48,4 +52,19 @@ const displayDate = dayjs(event.date).format("DD MMM");
         ))
     }
   </div>
-</SimpleCard>
+  <div class="flex">
+    <ul>
+      {
+        event.cities
+          .filter((city) => isDefined(city.link))
+          .map((city) => (
+            <li>
+              <a href={city.link} target="_blank">
+                {city.city}
+              </a>
+            </li>
+          ))
+      }
+    </ul>
+  </div>
+</Card>

@@ -1,1 +1,6 @@
-export type { IEvent, IOnlineEvent, IOnsiteEvent } from "../content/config";
+export type {
+  IEvent,
+  IOnlineEvent,
+  IOnsiteEvent,
+  IWatchPartiesEvent,
+} from "../content/config";

@@ -1,19 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import dayjs from "dayjs";
+import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import { getCollection } from "astro:content";
 import EventCard from "../components/event/EventCard.astro";
+import type { IEvent } from "../models/event.model";
 
-const events = await getCollection("event");
+dayjs.extend(isSameOrBefore);
 
-const futureEvents = events.filter(
-  (event) => new Date(event.data.date) > new Date()
+const events = (await getCollection("event"))
+  .filter(
+    (event) =>
+      event.data.type !== "watch-parties" ||
+      dayjs().isSameOrBefore(event.data.date, "day")
+  )
+  .map((event) => event.data as IEvent);
+
+const futureEvents = events.filter((event) =>
+  dayjs().isSameOrBefore(event.date, "day")
 );
 const pastEvents = events
-  .sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-  )
-  .filter((event) => new Date(event.data.date) < new Date());
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .filter((event) => dayjs().isAfter(event.date, "day"));
 
 const intervenants: {
   url: string;
@@ -83,7 +92,7 @@ const intervenants: {
     {
       futureEvents.map((event) => (
         <li>
-          <EventCard event={event.data} />
+          <EventCard event={event} />
         </li>
       ))
     }
@@ -179,7 +188,7 @@ const intervenants: {
     {
       pastEvents.map((event) => (
         <li>
-          <EventCard event={event.data} isPast={true} />
+          <EventCard event={event} isPast={true} />
         </li>
       ))
     }
