@@ -11,14 +11,24 @@ type Event = (typeof events)[number];
 
 export function GET(context: APIContext) {
   const items = events.map((event) => {
-    return {
-      author: event.data.speaker,
-      categories: [event.data.type],
-      title: formatTitle(event),
-      link: event.data.link ?? "https://angulardevs.fr/",
-      pubDate: formatPubDate(event),
-      content: new Marked().parse(event.body, { async: false }),
-    };
+    if (event.data.type === "watch-parties") {
+      return {
+        author: "Angular Devs France",
+        categories: [event.data.type],
+        title: formatTitle(event),
+        link: event.data.link ?? "https://angulardevs.fr/",
+        pubDate: formatPubDate(event),
+      };
+    } else {
+      return {
+        author: event.data.speaker,
+        categories: [event.data.type],
+        title: formatTitle(event),
+        link: event.data.link ?? "https://angulardevs.fr/",
+        pubDate: formatPubDate(event),
+        content: new Marked().parse(event.body, { async: false }),
+      };
+    }
   });
   return rss({
     title: "Angular Devs France",
@@ -30,6 +40,9 @@ export function GET(context: APIContext) {
 }
 
 function formatTitle(event: Event) {
+  if (event.data.type === "watch-parties") {
+    return event.data.title;
+  }
   const speaker = event.data.speaker ? ` - ${event.data.speaker}` : "";
   return `${event.data.title}${speaker}`;
 }
