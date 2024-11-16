@@ -59,7 +59,11 @@ const Card = (
           .filter((city) => isDefined(city.link))
           .map((city) => (
             <li>
-              <a href={city.link} target="_blank">
+              <a
+                href={city.link}
+                class="text-[#383e97] hover:text-current"
+                target="_blank"
+              >
                 {city.city}
               </a>
             </li>

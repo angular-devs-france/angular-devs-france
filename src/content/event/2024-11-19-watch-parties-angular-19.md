@@ -1,30 +1,20 @@
 ---
 title: "Watch Parties : Angular 19"
 date: 2024-11-19
-startTime: '18:00'
+startTime: '19:00'
 mode: 'hybrid'
 type: 'watch-parties'
-hidden: true
 avatars:
   - '/avatars/speakers/angular_gradient.png'
 cities:
   - 
-    city: Luxembourg
-    link: 
-  - 
-    city: Lyon
-    link: 
-  - 
     city: Nantes
-    link: 
+    link: https://www.eventbrite.fr/e/watch-party-release-angular-19-nantes-tickets-1077228512479
   - 
     city: Paris
-    link: 
-  - 
-    city: Orléans
-    link: 
+    link: https://www.eventbrite.fr/e/billets-watch-party-release-angular-19-paris-1076981654119
   - 
     city: Tours
-    link: 
+    link: https://www.eventbrite.com/e/watch-party-release-angular-19-tours-tickets-1077229665929
 ---
 
