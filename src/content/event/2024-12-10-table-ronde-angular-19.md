@@ -11,6 +11,7 @@ avatars:
   - '/avatars/speakers/jean-baptiste-nizet.jpg'
   - '/avatars/speakers/modeste-assiongbon.jpg'
   - '/avatars/speakers/samuel-ronce.jpg'
+  - '/avatars/speakers/matthieu-riegler.jpeg'
 ---
 
 ## Table ronde
