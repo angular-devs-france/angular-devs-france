@@ -57,6 +57,7 @@ const zPeople = z.object({
   picture: z.string(),
   twitter: z.string().optional(),
   linkedin: z.string().optional(),
+  youtube: z.string().optional(),
 });
 
 export type IPeople = z.infer<typeof zPeople>;
