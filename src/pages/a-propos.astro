@@ -33,7 +33,7 @@ const inactiveStaff = people.filter(p => !p.data.active);
     <p>L'organisation est indépendante dans ses choix de partage de contenu et n'a pas pour objectif de faciliter la
         publicité des employeurs de ses membres.</p>
 
-    <h2 class="text-4xl font-bold mt-20 mb-8 text-center">Hall of Fame</h2>
+    <h2 class="text-4xl font-bold mt-20 mb-8 text-center">Anciens membres</h2>
     <ul class="flex flex-wrap justify-center gap-8">
         {inactiveStaff.map((people) => (
                 <People people={people.data}/>
